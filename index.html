@@ -89,62 +89,15 @@
         <figure id="Location3"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
     
     </section>
-    </section>
-{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "Unemployment",
-    "anchor": "start",
-    "subtitle": "Rate, % | Source: CSO (WB) through ECO API",
-    "fontSize": "14",
-    "subtitleFontSize": "12",
-    "color": "#000000",
-    "subtitleColor": "#000000"
-  },
-  "height": "250",
-  "width": "container",
-  "autosize": {
-    "type": "fit",
-    "contains": "padding"
-  },
-  "background": "#ffffff",
-  "view": {
-    "fill": "#ffffff",
-    "strokeOpacity": 0
-  },
-  "data": {
-    "url": "https://api.economicsobservatory.com/ind/unem?vega",
-    "format": {
-      "type": "json"
-    }
-  },
-  "mark": {
-    "type": "line",
-    "color": "#f4134d",
-    "strokeWidth": "2"
-  },
-  "encoding": {
-    "x": {
-      "field": "date",
-      "type": "temporal",
-      "axis": {
-        "title": "",
-        "titleColor": "#122B39",
-        "grid": false
-      }
-    },
-    "y": {
-      "field": "value",
-      "type": "quantitative",
-      "axis": {
-        "title": "",
-        "titleColor": "#122B39",
-        "grid": false
-      }
-    }
-  }
-}
-     </section>    
+    <div class="chart-description">
+            <h2>Section 4: A basic chart</h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+                We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
+                As a first example, we're using a basic chart from our repo.
+            </p>
+        </div>
+        <figure id="Location4"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+         </section>    
         <!-- Do you want to add more sections? -->
         <!-- Try copying pasting the section above -->
         <!-- You'll need to change the id of the figure "<figure id="Location3"... -->
