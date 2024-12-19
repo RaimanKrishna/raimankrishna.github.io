@@ -1,8 +1,8 @@
 {
-  "$schema": "https://raw.githubusercontent.com/RaimanKrishna/raimankrishna.github.io/refs/heads/main/data-HtP2h.csv",
+  "$schema": "",
   "description": "A bar chart showing the US population distribution of age groups in 2000.",
   "height": {"step": 17},
-  "data": { "url": "data/population.json"},
+  "data": { "url": "https://raw.githubusercontent.com/RaimanKrishna/raimankrishna.github.io/refs/heads/main/data-HtP2h.csv"},
   "transform": [{"filter": "datum.year == 2000"}],
   "mark": "bar",
   "encoding": {
