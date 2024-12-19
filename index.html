@@ -128,7 +128,9 @@
                 <h2>Coding Challenge 4: Replication. Recreate and then improve someone else' charts. (WEEK 4) </h2>
                 <p> Growth in India's Main Seven Wallet depicting transactions per day and amount of trasection in a chart.<!-- This is a paragraph, it's the main way to display text on a web page -->
                 <img src="Wrong graph 2024-12-19 at 1.03.24 PM.png" alt="How many empty homes are there in Australia?>
- 
+        </div>
+        <figure id="Location7"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+       </section> 
                 </p>
     
     <!-- Do you want to add more sections? -->
@@ -145,6 +147,7 @@
         let figure_4_spec = "wk2_chart3.json"
         let figure_5_spec = "ex3.json"        
         let figure_6_spec = "WK4.json"
+        let figure_7_spec = "WK_4.json"
         
         vegaEmbed('#Location1', figure_1_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_1
         vegaEmbed('#Location2', figure_2_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_2
@@ -152,6 +155,7 @@
         vegaEmbed('#Location4', figure_4_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_4 
         vegaEmbed('#Location5', figure_5_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_5
         vegaEmbed('#Location6', figure_6_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_6
+        vegaEmbed('#Location7', figure_7_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_7
         // Do you want to add more graphs?
         // try defining a new variable for figure_3_spec, adding VegaEmbed for Location3, and adding a new section in the HTML
         // e.g. 
