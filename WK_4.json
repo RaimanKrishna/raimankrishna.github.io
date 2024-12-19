@@ -15,12 +15,23 @@
       {"region": "Total", "unoccupied": 1043776}
     ]
   },
+  "transform": [
+    {
+      "calculate": "datum.region === 'Total' ? 1 : 0", 
+      "as": "is_total"
+    }
+  ],
   "mark": "bar",
   "encoding": {
     "y": {
       "field": "region",
       "type": "nominal",
-      "title": "Regions"
+      "title": "Regions",
+      "sort": {
+        "field": "is_total",
+        "op": "min",
+        "order": "ascending"
+      }
     },
     "x": {
       "field": "unoccupied",
@@ -43,3 +54,4 @@
     }
   }
 }
+
