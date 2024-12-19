@@ -47,6 +47,54 @@
       }
     }
   },
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "region",
+          "type": "nominal",
+          "title": "Regions"
+        },
+        "x": {
+          "field": "unoccupied",
+          "type": "quantitative",
+          "title": "Unoccupied Private Dwellings"
+        },
+        "color": {
+          "field": "region",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "scheme": "category10"
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "fontSize": 12,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "y": {
+          "field": "region",
+          "type": "nominal"
+        },
+        "x": {
+          "field": "unoccupied",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "unoccupied",
+          "type": "quantitative"
+        }
+      }
+    }
+  ],
   "config": {
     "axis": {
       "labelFontSize": 12,
@@ -54,4 +102,3 @@
     }
   }
 }
-
