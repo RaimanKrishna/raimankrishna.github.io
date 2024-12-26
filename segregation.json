@@ -1,0 +1,67 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Comparison of Segregation (MIS) vs Segregation (SS2023) across Indian states as percentages.",
+  "title": {
+    "text": "Segregation (MIS) vs Segregation (SS2023) - Percentages",
+    "fontSize": 16
+  },
+  "width": 900,
+  "height": 800,
+  "data": {
+    "url": "https://raw.githubusercontent.com/RaimanKrishna/raimankrishna.github.io/refs/heads/main/Source_Segregation_C_1735226535269.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "fold": ["Segregation (MIS) (AVG)", "Segregation (SS2023) (AVG)"],
+      "as": ["Metric", "Value"]
+    },
+    {
+      "calculate": "datum.Value * 100",
+      "as": "PercentageValue"
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "State",
+      "type": "nominal",
+      "axis": {
+        "title": "State",
+        "labelFontSize": 10
+      }
+    },
+    "x": {
+      "field": "Metric",
+      "type": "nominal",
+      "axis": {
+        "title": "Metric"
+      }
+    },
+    "color": {
+      "field": "PercentageValue",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "viridis"
+      },
+      "legend": {
+        "title": "Segregation (%)"
+      }
+    },
+    "tooltip": [
+      {"field": "State", "type": "nominal"},
+      {"field": "Metric", "type": "nominal"},
+      {"field": "PercentageValue", "type": "quantitative", "format": ".1f"}
+    ]
+  },
+  "mark": {
+    "type": "rect",
+    "tooltip": true
+  },
+  "config": {
+    "axis": {
+      "labelFont": "Arial",
+      "titleFont": "Arial"
+    },
+    "view": {"stroke": null}
+  }
+}
