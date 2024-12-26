@@ -1,0 +1,51 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Map of Indian states showing marks and position distribution",
+  "width": 800,
+  "height": 600,
+  "title": {
+    "text": "Cleanliness Survey Rankings and Marks Across Indian States",
+    "subtitle": ["Source: Swachh Survekshan 2023"],
+    "fontSize": 15,
+    "subtitleFontSize": 11,
+    "subtitleFontWeight": "lighter",
+    "anchor": "middle"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/RaimanKrishna/raimankrishna.github.io/refs/heads/main/India_states.json",
+        "format": {"type": "json", "property": "features"}
+      },
+      "transform": [
+        {
+          "lookup": "properties.id",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/RaimanKrishna/raimankrishna.github.io/refs/heads/main/filtered_state_ss_result%202.csv",
+              "format": {"type": "csv"}
+            },
+            "key": "id",
+            "fields": ["states", "position", "marks"]
+          }
+        }
+      ],
+      "projection": {"type": "mercator", "center": [82, 23], "scale": 1000},
+      "mark": {"type": "geoshape", "stroke": "#fff", "strokeWidth": 1},
+      "encoding": {
+        "color": {
+          "field": "marks",
+          "type": "quantitative",
+          "scale": {"scheme": "greens", "domain": [0, 3000]},
+          "legend": {"title": "Marks", "format": ".1f"}
+        },
+        "tooltip": [
+          {"field": "properties.name", "type": "nominal", "title": "State"},
+          {"field": "marks", "type": "quantitative", "title": "Marks", "format": ".1f"},
+          {"field": "position", "type": "quantitative", "title": "Position"}
+        ]
+      }
+    }
+  ],
+  "config": {"view": {"stroke": null}}
+}
