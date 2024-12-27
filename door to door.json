@@ -1,0 +1,72 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Diverging bar chart showing Door to Door Collection metrics as percentages for each state.",
+  "title": {
+    "text": "Door to Door Collection: MIS vs SS2023 (Percentages)",
+    "fontSize": 16
+  },
+  "width": 800,
+  "height": 700,
+  "data": {
+    "url": "https://raw.githubusercontent.com/RaimanKrishna/raimankrishna.github.io/refs/heads/main/door%20to%20door.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "filter": "datum['Door to Door (MIS) (AVG)'] !== null && datum['Door to Door (SS2023) (AVG)'] !== null"
+    },
+    {
+      "calculate": "datum['Door to Door (MIS) (AVG)'] * 100",
+      "as": "MIS_Percentage"
+    },
+    {
+      "calculate": "datum['Door to Door (SS2023) (AVG)'] * 100",
+      "as": "SS2023_Percentage"
+    },
+    {
+      "fold": ["MIS_Percentage", "SS2023_Percentage"],
+      "as": ["Metric", "Percentage"]
+    },
+    {
+      "calculate": "datum.Metric === 'MIS_Percentage' ? datum.Percentage : -datum.Percentage",
+      "as": "Adjusted_Percentage"
+    }
+  ],
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "State",
+          "type": "nominal",
+          "axis": {"title": "State"},
+          "sort": {"field": "Percentage", "order": "descending"}
+        },
+        "x": {
+          "field": "Adjusted_Percentage",
+          "type": "quantitative",
+          "axis": {
+            "title": "Percentage (%)",
+            "format": ".1f",
+            "labelExpr": "abs(datum.value)"
+          },
+          "scale": {"domain": [-100, 100]}
+        },
+        "color": {
+          "field": "Metric",
+          "type": "nominal",
+          "scale": {
+            "domain": ["MIS_Percentage", "SS2023_Percentage"],
+            "range": ["#1f77b4", "#ff7f0e"]
+          },
+          "legend": {"title": "Metrics"}
+        },
+        "tooltip": [
+          {"field": "State", "type": "nominal"},
+          {"field": "Metric", "type": "nominal"},
+          {"field": "Percentage", "type": "quantitative", "format": ".1f"}
+        ]
+      }
+    }
+  ]
+}
