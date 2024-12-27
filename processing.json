@@ -1,0 +1,79 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Diverging bar chart showing Generation vs Processing metrics as percentages for each state.",
+  "title": {
+    "text": "Generation vs Processing: MIS vs SS2023 (Percentages)",
+    "fontSize": 16
+  },
+  "width": 800,
+  "height": 700,
+  "data": {
+    "values": [
+      {"State": "ARUNACHAL PRADESH", "MIS": 1.19707383553291, "SS2023": 0},
+      {"State": "MANIPUR", "MIS": 1.09598753128678, "SS2023": 0.0913602239470671},
+      {"State": "MIZORAM", "MIS": 1.0346195677636, "SS2023": 0.0234591840614425},
+      {"State": "NAGALAND", "MIS": 1.00767175843526, "SS2023": 0.0577670553545101},
+      {"State": "SIKKIM", "MIS": 1.00394798837842, "SS2023": 0.166766917293233},
+      {"State": "CHANDIGARH", "MIS": 1, "SS2023": 1},
+      {"State": "ANDAMAN AND NICOBAR ISLANDS", "MIS": 0.999877000363731, "SS2023": 0.619845360824742},
+      {"State": "MEGHALAYA", "MIS": 0.999163565328475, "SS2023": 0.105451861225351},
+      {"State": "LADAKH", "MIS": 0.99789600527575, "SS2023": 0.471869328493648},
+      {"State": "WEST BENGAL", "MIS": 0.997551075017873, "SS2023": 0.0105851182412155},
+      {"State": "PUDUCHERRY", "MIS": 0.966581000395921, "SS2023": 0.00728146503076419},
+      {"State": "BIHAR", "MIS": 0.912431497824404, "SS2023": 0.113010595233243},
+      {"State": "ASSAM", "MIS": 0.901277593613077, "SS2023": 0.026127186179601},
+      {"State": "KARNATAKA", "MIS": 0.882504138313183, "SS2023": 0.49552933802865},
+      {"State": "ANDHRA PRADESH", "MIS": 0.874792239574418, "SS2023": 0.339733350886413},
+      {"State": "HIMACHAL PRADESH", "MIS": 0.872331941034553, "SS2023": 0.343466510846542},
+      {"State": "JHARKHAND", "MIS": 0.866380768743753, "SS2023": 0.386353467561521},
+      {"State": "MADHYA PRADESH", "MIS": 0.856118487062458, "SS2023": 0.732424618149388},
+      {"State": "GUJARAT", "MIS": 0.851574770601413, "SS2023": 0.626224112250753},
+      {"State": "TELANGANA", "MIS": 0.841193694168728, "SS2023": 0.428703552407164},
+      {"State": "ODISHA", "MIS": 0.836542179765656, "SS2023": 0.657268785008131},
+      {"State": "JAMMU AND KASHMIR", "MIS": 0.795664199722388, "SS2023": 0.0216842220501873},
+      {"State": "GOA", "MIS": 0.794444108624961, "SS2023": 0.0899732690392578},
+      {"State": "KERALA", "MIS": 0.789846639454189, "SS2023": 0.291143634882989},
+      {"State": "UTTARAKHAND", "MIS": 0.786078777498619, "SS2023": 0.26008342076307},
+      {"State": "MAHARASHTRA", "MIS": 0.776574756086417, "SS2023": 0.713935295286318},
+      {"State": "RAJASTHAN", "MIS": 0.772757074930499, "SS2023": 0.119346755171835},
+      {"State": "CHHATTISGARH", "MIS": 0.722233299094711, "SS2023": 0.792526134497537},
+      {"State": "PUNJAB", "MIS": 0.711290407938955, "SS2023": 0.270789654993592},
+      {"State": "TRIPURA", "MIS": 0.695891164607533, "SS2023": 0.0104499965960923},
+      {"State": "HARYANA", "MIS": 0.695886306163612, "SS2023": 0.361648450965162},
+      {"State": "DAMAN DIU AND DADRA NAGAR HAVELI", "MIS": 0.683340083214891, "SS2023": 0.33403101512701},
+      {"State": "TAMIL NADU", "MIS": 0.640987392983718, "SS2023": 0.181671678932455},
+      {"State": "UTTAR PRADESH", "MIS": 0.507954400021409, "SS2023": 0.482640125696765},
+      {"State": "DELHI", "MIS": 0.369250971477934, "SS2023": 0.860712711249215}
+    ]
+  },
+  "transform": [
+    {"calculate": "datum.MIS * 100", "as": "MIS_Percentage"},
+    {"calculate": "datum.SS2023 * 100", "as": "SS2023_Percentage"},
+    {"fold": ["MIS_Percentage", "SS2023_Percentage"], "as": ["Metric", "Percentage"]},
+    {"calculate": "datum.Metric === 'MIS_Percentage' ? -datum.Percentage : datum.Percentage", "as": "Adjusted_Percentage"}
+  ],
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "y": {"field": "State", "type": "nominal", "axis": {"title": "State"}},
+        "x": {
+          "field": "Adjusted_Percentage",
+          "type": "quantitative",
+          "axis": {"title": "Percentage (%)", "format": ".1f", "labelExpr": "abs(datum.value)"}
+        },
+        "color": {
+          "field": "Metric",
+          "type": "nominal",
+          "scale": {"domain": ["MIS_Percentage", "SS2023_Percentage"], "range": ["#1f77b4", "#ff7f0e"]},
+          "legend": {"title": "Metrics"}
+        },
+        "tooltip": [
+          {"field": "State", "type": "nominal"},
+          {"field": "Metric", "type": "nominal"},
+          {"field": "Percentage", "type": "quantitative", "format": ".1f"}
+        ]
+      }
+    }
+  ]
+}
