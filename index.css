@@ -71,14 +71,6 @@ header a:hover {
 
 }
 
-.image-section img {
-    width: calc(33.33% - 20px); /* 3 images with space adjustment */
-    flex-shrink: 0;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
 .image-section img:hover {
     transform: scale(1.05); /* Slight zoom effect */
     box-shadow: 0 6px 10px -2px rgb(0 0 0 / 0.15); /* Enhanced shadow on hover */
