@@ -1,102 +1,51 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Map of Indian states showing marks and position distribution",
+  "width": 800,
+  "height": 600,
   "title": {
-    "text": "Literacy in India",
-    "subtitle": [
-      "Literacy Rate by District, 2011 Census",
-      ""
-    ],
-    "anchor": "start",
-    "fontSize": 16,
-    "subtitleFontSize": 12,
-    "subtitleFontWeight": "lighter"
+    "text": "Cleanliness Survey Rankings and Marks Across Indian States",
+    "subtitle": ["Source: Swachh Survekshan 2023"],
+    "fontSize": 15,
+    "subtitleFontSize": 11,
+    "subtitleFontWeight": "lighter",
+    "anchor": "middle"
   },
-  "width": 360,
-  "height": 450,
-  "data": {
-    "url": "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/datasets/advanced/india_districts.topojson",
-    "format": {
-      "type": "topojson",
-      "feature": "india-districts-727"
-    }
-  },
-  "transform": [
+  "layer": [
     {
-      "calculate": "toNumber(datum.properties.dt_code)",
-      "as": "id"
-    },
-    {
-      "lookup": "id",
-      "from": {
-        "data": {
-          "url": "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/datasets/advanced/indian_literacy_rates_wide.csv"
+      "data": {
+        "url": "https://raw.githubusercontent.com/RaimanKrishna/raimankrishna.github.io/refs/heads/main/India_states.json",
+        "format": {"type": "json", "property": "features"}
+      },
+      "transform": [
+        {
+          "lookup": "properties.id",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/RaimanKrishna/raimankrishna.github.io/refs/heads/main/filtered_state_ss_result%202.csv",
+              "format": {"type": "csv"}
+            },
+            "key": "id",
+            "fields": ["states", "position", "marks"]
+          }
+        }
+      ],
+      "projection": {"type": "mercator", "center": [82, 23], "scale": 1000},
+      "mark": {"type": "geoshape", "stroke": "#fff", "strokeWidth": 1},
+      "encoding": {
+        "color": {
+          "field": "marks",
+          "type": "quantitative",
+          "scale": {"scheme": "greens", "domain": [0, 3000]},
+          "legend": {"title": "Marks", "format": ".1f"}
         },
-        "key": "district_id",
-        "fields": [
-          "male_rate",
-          "female_rate",
-          "total_rate",
-          "difference_rate",
-          "district_name"
+        "tooltip": [
+          {"field": "properties.name", "type": "nominal", "title": "State"},
+          {"field": "marks", "type": "quantitative", "title": "Marks", "format": ".1f"},
+          {"field": "position", "type": "quantitative", "title": "Position"}
         ]
       }
     }
   ],
-  "projection": {
-    "type": "naturalEarth1"
-  },
-  "layer": [
-    {
-      "mark": {
-        "type": "geoshape"
-      },
-      "encoding": {
-        "color": {
-          "value": "rgb(200,200,200)"
-        }
-      }
-    },
-    {
-      "mark": {
-        "type": "geoshape"
-      },
-      "encoding": {
-        "color": {
-          "field": "total_rate",
-          "scale": {
-            "domain": [
-              0.3,
-              1
-            ]
-          },
-          "legend": {
-            "title": null,
-            "format": ".0%"
-          },
-          "type": "quantitative"
-        },
-        "tooltip": [
-          {
-            "field": "district_name",
-            "title": "Name"
-          },
-          {
-            "field": "male_rate",
-            "title": "Male",
-            "format": ".0%"
-          },
-          {
-            "field": "female_rate",
-            "title": "Female",
-            "format": ".0%"
-          },
-          {
-            "field": "total_rate",
-            "title": "Total",
-            "format": ".0%"
-          }
-        ]
-      }
-    }
-  ]
+  "config": {"view": {"stroke": null}}
 }
