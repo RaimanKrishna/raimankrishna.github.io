@@ -1,12 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Comparison of Segregation (MIS) vs Segregation (SS2023) across Indian states as percentages.",
   "title": {
-    "text": "Segregation (MIS) vs Segregation (SS2023) - Percentages",
-    "fontSize": 16
+    "text": "Segregation (MIS) vs Segregation (SS2023) - Indian States",
+    "subtitle": "Percentage values compared across states",
+    "fontSize": 16,
+    "anchor": "middle"
   },
-  "width": 900,
-  "height": 800,
+  "width": 800,
+  "height": 400,
   "data": {
     "url": "https://raw.githubusercontent.com/RaimanKrishna/raimankrishna.github.io/refs/heads/main/Source_Segregation_C_1735226535269.csv",
     "format": {"type": "csv"}
@@ -19,44 +20,61 @@
     {
       "calculate": "datum.Value * 100",
       "as": "PercentageValue"
+    },
+    {
+      "calculate": "datum.Metric === 'Segregation (MIS) (AVG)' ? 'MIS' : 'SS2023'",
+      "as": "Legend"
     }
   ],
   "encoding": {
-    "y": {
+    "x": {
       "field": "State",
       "type": "nominal",
-      "axis": {
-        "title": "State",
-        "labelFontSize": 10
-      }
-    },
-    "x": {
-      "field": "Metric",
-      "type": "nominal",
-      "axis": {
-        "title": "Metric"
-      }
-    },
-    "color": {
-      "field": "PercentageValue",
-      "type": "quantitative",
-      "scale": {
-        "scheme": "viridis"
-      },
-      "legend": {
-        "title": "Segregation (%)"
-      }
+      "axis": {"title": "State", "labelFontSize": 10}
     },
     "tooltip": [
-      {"field": "State", "type": "nominal"},
-      {"field": "Metric", "type": "nominal"},
-      {"field": "PercentageValue", "type": "quantitative", "format": ".1f"}
+      {"field": "State", "type": "nominal", "title": "State"},
+      {"field": "Legend", "type": "nominal", "title": "Metric"},
+      {"field": "PercentageValue", "type": "quantitative", "title": "Value (%)", "format": ".1f"}
     ]
   },
-  "mark": {
-    "type": "rect",
-    "tooltip": true
-  },
+  "layer": [
+    {
+      "mark": {"type": "line", "point": true},
+      "encoding": {
+        "y": {
+          "field": "PercentageValue",
+          "type": "quantitative",
+          "axis": {
+            "title": "Segregation (%)",
+            "titleFontSize": 12,
+            "grid": true,
+            "labelFontSize": 10
+          }
+        },
+        "color": {
+          "field": "Legend",
+          "type": "nominal",
+          "scale": {
+            "domain": ["MIS", "SS2023"],
+            "range": ["#1f77b4", "#9b0000"]
+          },
+          "title": "Metric"
+        }
+      }
+    },
+    {
+      "mark": "rule",
+      "encoding": {
+        "x": {
+          "field": "State",
+          "type": "nominal"
+        },
+        "color": {"value": "#d3d3d3"},
+        "opacity": {"value": 0.6}
+      }
+    }
+  ],
   "config": {
     "axis": {
       "labelFont": "Arial",
@@ -65,3 +83,4 @@
     "view": {"stroke": null}
   }
 }
+
