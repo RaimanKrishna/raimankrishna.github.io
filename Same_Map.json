@@ -1,0 +1,57 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Number of empty and occupied homes in Australia by region.",
+  "width": 700,
+  "height": 400,
+  "data": {
+    "values": [
+      {"Region": "South Wales", "Type": "Occupied private dwellings", "Dwellings": 3},
+      {"Region": "Victoria", "Type": "Occupied private dwellings", "Dwellings": 2},
+      {"Region": "Queensland", "Type": "Occupied private dwellings", "Dwellings": 0.75},
+      {"Region": "Western Australia", "Type": "Occupied private dwellings", "Dwellings": 1},
+      {"Region": "Northern Territory", "Type": "Occupied private dwellings", "Dwellings": 0.2},
+      {"Region": "Total", "Type": "Occupied private dwellings", "Dwellings": 9},
+      {"Region": "South Wales", "Type": "Unoccupied private dwellings", "Dwellings": 0.2},
+      {"Region": "Victoria", "Type": "Unoccupied private dwellings", "Dwellings": 0.15},
+      {"Region": "Queensland", "Type": "Unoccupied private dwellings", "Dwellings": 0.1},
+      {"Region": "Western Australia", "Type": "Unoccupied private dwellings", "Dwellings": 0.08},
+      {"Region": "Northern Territory", "Type": "Unoccupied private dwellings", "Dwellings": 0.02},
+      {"Region": "Total", "Type": "Unoccupied private dwellings", "Dwellings": 0.55}
+    ]
+  },
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  "encoding": {
+    "x": {
+      "field": "Region",
+      "type": "nominal",
+      "sort": ["South Wales", "Victoria", "Queensland", "Western Australia", "Northern Territory", "Total"],
+      "axis": {"labelAngle": 0, "title": "Region"}
+    },
+    "y": {
+      "field": "Dwellings",
+      "type": "quantitative",
+      "axis": {"title": "Number of Dwellings (in millions)"}
+    },
+    "color": {
+      "field": "Type",
+      "type": "nominal",
+      "scale": {"range": ["#a1d99b", "#756bb1"]},
+      "title": "Dwelling Type"
+    },
+    "tooltip": [
+      {"field": "Region", "type": "nominal", "title": "Region"},
+      {"field": "Type", "type": "nominal", "title": "Dwelling Type"},
+      {"field": "Dwellings", "type": "quantitative", "title": "Number of Dwellings (in millions)"}
+    ]
+  },
+  "config": {
+    "legend": {
+      "orient": "right",
+      "titleFontSize": 14,
+      "labelFontSize": 12
+    }
+  }
+}
