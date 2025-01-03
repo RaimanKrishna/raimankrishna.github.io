@@ -1,0 +1,79 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Vega-Lite version of bar chart from https://observablehq.com/@d3/learn-d3-scales.",
+  "width": 400,
+  "data": {
+    "values": [
+      {"Country": "Costa Rica", "Gini": 0.47},
+      {"Country": "Chile", "Gini": 0.45},
+      {"Country": "Mexico", "Gini": 0.42},
+      {"Country": "Turkey", "Gini": 0.4},
+      {"Country": "United States", "Gini": 0.4},
+      {"Country": "Bulgaria", "Gini": 0.38},
+      {"Country": "Lithuania", "Gini": 0.37},
+      {"Country": "United Kingdom", "Gini": 0.35},
+      {"Country": "Israel", "Gini": 0.34},
+      {"Country": "Latvia", "Gini": 0.34},
+      {"Country": "Italy", "Gini": 0.33},
+      {"Country": "Japan", "Gini": 0.33},
+      {"Country": "South Korea", "Gini": 0.33},
+      {"Country": "Estonia", "Gini": 0.32},
+      {"Country": "New Zealand", "Gini": 0.32},
+      {"Country": "Spain", "Gini": 0.32},
+      {"Country": "Switzerland", "Gini": 0.32},
+      {"Country": "Australia", "Gini": 0.32},
+      {"Country": "Greece", "Gini": 0.31},
+      {"Country": "Portugal", "Gini": 0.31},
+      {"Country": "France", "Gini": 0.3},
+      {"Country": "Germany", "Gini": 0.3},
+      {"Country": "Netherlands", "Gini": 0.3},
+      {"Country": "Canada", "Gini": 0.29},
+      {"Country": "Ireland", "Gini": 0.29},
+      {"Country": "Sweden", "Gini": 0.29},
+      {"Country": "Croatia", "Gini": 0.29},
+      {"Country": "Austria", "Gini": 0.28},
+      {"Country": "Hungary", "Gini": 0.28},
+      {"Country": "Luxembourg", "Gini": 0.28},
+      {"Country": "Norway", "Gini": 0.28},
+      {"Country": "Denmark", "Gini": 0.27},
+      {"Country": "Finland", "Gini": 0.27},
+      {"Country": "Belgium", "Gini": 0.26},
+      {"Country": "Czechia", "Gini": 0.26},
+      {"Country": "Iceland", "Gini": 0.26},
+      {"Country": "Poland", "Gini": 0.26},
+      {"Country": "Slovenia", "Gini": 0.24},
+      {"Country": "Slovakia", "Gini": 0.22}
+    ]
+  },
+  "encoding": {
+    "y": {
+      "field": "Country",
+      "type": "nominal",
+      "sort": "-x",
+      "title": "OECD Countries"
+    },
+    "x": {"field": "Gini", "type": "quantitative", "title": "Gini Coefficient"}
+  },
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "color": {
+          "field": "Gini",
+          "type": "quantitative",
+          "title": "Gini Coefficient"
+        }
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "right", "xOffset": -4, "aria": false},
+      "encoding": {
+        "text": {"field": "Gini", "type": "quantitative"},
+        "color": {
+          "condition": {"test": {"field": "Gini", "gt": 10}, "value": "white"},
+          "value": "black"
+        }
+      }
+    }
+  ]
+}
