@@ -1,0 +1,27 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Swachh Survekshan 2023 Evaluation Parameters (Proportions)",
+  "width": 300,
+  "height": 300,
+  "data": {
+    "values": [
+      {"category": "Service Level Progress", "marks": 4830, "percentage": 51},
+      {"category": "Certification", "marks": 2500, "percentage": 26},
+      {"category": "Citizens' Voice", "marks": 2170, "percentage": 23}
+    ]
+  },
+  "mark": {"type": "arc", "innerRadius": 50},
+  "encoding": {
+    "theta": {"field": "percentage", "type": "quantitative"},
+    "color": {
+      "field": "category",
+      "type": "nominal",
+      "legend": {"title": "Category"}
+    },
+    "tooltip": [
+      {"field": "category", "type": "nominal", "title": "Category"},
+      {"field": "marks", "type": "quantitative", "title": "Marks"},
+      {"field": "percentage", "type": "quantitative", "title": "Percentage (%)"}
+    ]
+  }
+}
