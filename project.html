@@ -59,6 +59,8 @@
         </ul>
         <p><b>Data:</b> Swachh Bharat Mission (Urban), Swachh Survekshan (Cleanliness Survey) 2023, State Urban Development Departments, Census of India (2011).</p>
     </div>
+     <center><figure id="Location1"></figure></center>
+            <figcaption>Chart 1: Cleanliness survey Raking and Marking Across Indian States (WEEK 1)</figcaption> 
 </section>
 
         
@@ -69,7 +71,7 @@
                     
             </div>
             <center><figure id="Location1"></figure></center>
-            <figcaption>Chart 1: Cleanliness survey Raking and Marking Across Indian States (WEEK 1)</figcaption> 
+            <figcaption>Chart 2: Cleanliness survey Raking and Marking Across Indian States (WEEK 1)</figcaption> 
         </section>
 
         <!-- Rest of your sections remain the same structure, just wrapped in the container -->
@@ -81,9 +83,9 @@
                 Using data from the National Family Health Survey 4 (2019-20), this chart shows the wide variations in under-five mortality rates across different states with southern states like Kerala having lower mortality rates while northern states such as Uttar Pradesh and Bihar having above national average mortality.</p>
             </div>
            <center><figure id="Location2"></figure></center>
-            <figcaption>Chart 2: Door-to-Door Collection: Claimed percentage of door-to-door collections versus MIS data across States. (WEEK 1)</figcaption>
+            <figcaption>Chart 3: Door-to-Door Collection: Claimed percentage of door-to-door collections versus MIS data across States. (WEEK 1)</figcaption>
             <center><figure id="Location3"></figure></center>
-            <figcaption>Chart 3: Source segregation: Claimed percentage of source segregation versus MIS data across States. (WEEK 2)</figcaption> 
+            <figcaption>Chart 4: Source segregation: Claimed percentage of source segregation versus MIS data across States. (WEEK 2)</figcaption> 
             <figure id="Location4"></figure>
             <figcaption>Chart 4:Waste Generation: Claimed waste generation data versus the MIS data. Source:Swachh Survekshan India 2023 4.</figcaption>
             </section>  
@@ -115,6 +117,7 @@
     </main>
 
     <script>
+        let figure_5_spec = "Swachh_Survekshan_Ranking.json"
         let figure_1_spec = "WK7_india_choropleth_map.json";
         let figure_2_spec = "door to door.json" 
         let figure_3_spec = "segregation.json"                                                                                                       
@@ -126,11 +129,11 @@
         let figure_9_spec = "BBC_Chart2.json"
         let figure_10_spec = "base_india.json"
 
-        vegaEmbed('#Location1', figure_1_spec)
-        vegaEmbed('#Location2', figure_2_spec)
-        vegaEmbed('#Location3', figure_3_spec)
-        vegaEmbed('#Location4', figure_4_spec)
-        vegaEmbed('#Location5', figure_5_spec)
+        vegaEmbed('#Location1', figure_5_spec)
+        vegaEmbed('#Location2', figure_1_spec)
+        vegaEmbed('#Location3', figure_2_spec)
+        vegaEmbed('#Location4', figure_3_spec)
+        vegaEmbed('#Location5', figure_4_spec)
         vegaEmbed('#Location6', figure_6_spec)
         vegaEmbed('#Location7', figure_7_spec)
         vegaEmbed('#Location8', figure_8_spec)
