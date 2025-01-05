@@ -1,0 +1,64 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json",
+  "config": {
+    "view": {
+      "continuousWidth": 300,
+      "continuousHeight": 300
+    }
+  },
+  "data": {
+    "name": "data-13b14277f03f1ff66ff91382b4e3c277",
+    "values": [
+      {
+        "description": "BROWN SLICED LOAF BRANDED 400G",
+        "price": 0.6328650251820522
+      },
+      {
+        "description": "LARGE LOAF-WHITE-SLICED-800G",
+        "price": 0.5631293846862566
+      },
+      {
+        "description": "WHITE SLICED LOAF BRANDED 750G",
+        "price": 1.0751925405710363
+      },
+      {
+        "description": "WHOLEMEAL SLICED LOAF BRANDED",
+        "price": 1.1021941655655976
+      }
+    ]
+  },
+  "mark": "bar",
+  "encoding": {
+    "color": {
+      "field": "description",
+      "legend": null,
+      "scale": {
+        "domain": [
+          "LARGE LOAF-WHITE-SLICED-800G",
+          "WHITE SLICED LOAF BRANDED 750G",
+          "BROWN SLICED LOAF BRANDED 400G",
+          "WHOLEMEAL SLICED LOAF BRANDED"
+        ],
+        "range": ["#f5deb3", "#ffdab9", "#cd853f", "#8b4513"]
+      },
+      "type": "nominal"
+    },
+    "x": {
+      "axis": {
+        "format": ".2f"
+      },
+      "field": "price",
+      "title": "Average Price (£)",
+      "type": "quantitative"
+    },
+    "y": {
+      "field": "description",
+      "sort": "-x",
+      "title": "Bread Description",
+      "type": "nominal"
+    }
+  },
+  "height": 300,
+  "width": 600,
+  "title": "Comparison of Average Bread Prices"
+}
