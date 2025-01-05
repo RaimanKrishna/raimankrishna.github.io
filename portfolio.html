@@ -177,6 +177,19 @@
             <figcaption>Map 2. A choropleth map of India displays the Swachh Survekshan rankings for Indian states, illustrating the performance of each state in sanitation and cleanliness as per the latest survey data.  (WEEK 7)</figcaption> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
         </section>
 
+        <section>
+        <div class="chart-description">
+            <h2>Coding Challenge 8: Big Data </h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+               A new portfolio page was created on GitHub and two charts have been displayed for this coding challenge.
+            </p>
+        </div>
+        <center><figure id="Location22"></figure></center>
+        <figcaption>Chart 1:Relationship between GDP and Life Expectancy (WEEK 1)</figcaption> 
+        <center><figure id="Location23"></figure></center>
+        <figcaption>Chart 2: Unemployment Rate (WEEK 1)</figcaption> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed --><!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+    </section>
+
        </section>
 
      <section>
@@ -213,6 +226,7 @@
         let figure_8_spec = "WK_5.json"
         let figure_12_spec = "WK7_Base_Map.json"
         let figure_13_spec = "WK7_india_choropleth_map.json"
+        let figure_23_spec = "WK10.json"
         let figure_17_spec = "WK10_Latest.json"
         
         vegaEmbed('#Location1', figure_1_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_1
@@ -229,6 +243,7 @@
         vegaEmbed('#Location8', figure_8_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_8
         vegaEmbed('#Location12', figure_12_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_12
         vegaEmbed('#Location13', figure_13_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_13
+        vegaEmbed('#Location23', figure_23_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_23
         vegaEmbed('#Location17', figure_17_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_17
         
         // Do you want to add more graphs?
