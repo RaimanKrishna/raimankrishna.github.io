@@ -1,0 +1,67 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Scatter plot showing Swachh Survekshan scores with updated dark color-coded political alignment",
+  "width": 800,
+  "height": 500,
+  "title": {
+    "text": "Swachh Bharat Mission Rankings by State",
+    "subtitle": ["Color-coded by political alignment"],
+    "fontSize": 18,
+    "subtitleFontSize": 12,
+    "subtitleFontWeight": "lighter"
+  },
+  "data": {
+    "values": [
+      {"id": "INAP", "state": "Andhra Pradesh", "marks": 2816.83, "position": 6, "alignment": "Central"},
+      {"id": "INUP", "state": "Uttar Pradesh", "marks": 2286.87, "position": 9, "alignment": "Central"},
+      {"id": "INGJ", "state": "Gujarat", "marks": 2328.14, "position": 8, "alignment": "Central"},
+      {"id": "INMP", "state": "Madhya Pradesh", "marks": 3657.92, "position": 2, "alignment": "Central"},
+      {"id": "INHR", "state": "Haryana", "marks": 1958.01, "position": 14, "alignment": "Central"},
+      {"id": "INAS", "state": "Assam", "marks": 1515.87, "position": 20, "alignment": "Central"},
+      {"id": "INOR", "state": "Odisha", "marks": 3131.38, "position": 4, "alignment": "Central"},
+      {"id": "INGA", "state": "Goa", "marks": 1990.15, "position": 13, "alignment": "Central"},
+      {"id": "INTR", "state": "Tripura", "marks": 1236.40, "position": 23, "alignment": "Central"},
+      {"id": "INKA", "state": "Karnataka", "marks": 2059.20, "position": 12, "alignment": "Central"},
+      {"id": "INBR", "state": "Bihar", "marks": 1815.25, "position": 15, "alignment": "Central"},
+      {"id": "INMH", "state": "Maharashtra", "marks": 3721.55, "position": 1, "alignment": "Central"},
+      {"id": "INCT", "state": "Chhattisgarh", "marks": 3425.41, "position": 3, "alignment": "Central"},
+      {"id": "INTL", "state": "Telangana", "marks": 3029.32, "position": 5, "alignment": "Central"},
+      {"id": "INSK", "state": "Sikkim", "marks": 2069.96, "position": 11, "alignment": "Central"},
+      {"id": "INWB", "state": "West Bengal", "marks": 0, "position": 0, "alignment": "Opposition"},
+      {"id": "INKL", "state": "Kerala", "marks": 1321.88, "position": 22, "alignment": "Opposition"},
+      {"id": "INRJ", "state": "Rajasthan", "marks": 1212.14, "position": 25, "alignment": "Opposition"},
+      {"id": "INTN", "state": "Tamil Nadu", "marks": 2263.47, "position": 10, "alignment": "Opposition"},
+      {"id": "INDL", "state": "Delhi", "marks": 0, "position": 0, "alignment": "Opposition"},
+      {"id": "INPY", "state": "Puducherry", "marks": 0, "position": 0, "alignment": "Opposition"},
+      {"id": "INPB", "state": "Punjab", "marks": 2605.49, "position": 7, "alignment": "Opposition"},
+      {"id": "INJH", "state": "Jharkhand", "marks": 1667.58, "position": 16, "alignment": "Opposition"},
+      {"id": "INML", "state": "Meghalaya", "marks": 1364.29, "position": 21, "alignment": "Opposition"},
+      {"id": "INNL", "state": "Nagaland", "marks": 1232.69, "position": 24, "alignment": "Opposition"},
+      {"id": "INMZ", "state": "Mizoram", "marks": 1105.92, "position": 26, "alignment": "Opposition"},
+      {"id": "INHP", "state": "Himachal Pradesh", "marks": 1636.98, "position": 18, "alignment": "Opposition"},
+      {"id": "INJK", "state": "Jammu & Kashmir", "marks": 0, "position": 0, "alignment": "Opposition"},
+      {"id": "INLA", "state": "Ladakh", "marks": 0, "position": 0, "alignment": "Opposition"},
+      {"id": "INLD", "state": "Lakshadweep", "marks": 0, "position": 0, "alignment": "Opposition"},
+      {"id": "INMN", "state": "Manipur", "marks": 1663.81, "position": 17, "alignment": "Opposition"},
+      {"id": "INAR", "state": "Arunachal Pradesh", "marks": 1073.75, "position": 27, "alignment": "Opposition"}
+    ]
+  },
+  "mark": {"type": "circle", "size": 100},
+  "encoding": {
+    "x": {"field": "position", "type": "quantitative", "title": "Swachh Survekshan Position"},
+    "y": {"field": "marks", "type": "quantitative", "title": "Swachh Survekshan Marks"},
+    "color": {
+      "field": "alignment",
+      "type": "nominal",
+      "scale": {"domain": ["Central", "Opposition"], "range": ["darkgreen", "darkorange"]},
+      "title": "Political Alignment"
+    },
+    "tooltip": [
+      {"field": "state", "type": "nominal", "title": "State"},
+      {"field": "marks", "type": "quantitative", "title": "Marks"},
+      {"field": "position", "type": "quantitative", "title": "Position"},
+      {"field": "alignment", "type": "nominal", "title": "Alignment"}
+    ]
+  },
+  "config": {"view": {"stroke": null}}
+}
