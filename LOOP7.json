@@ -1,1 +1,40 @@
-{"$schema": "https://vega.github.io/schema/vega-lite/v5.json", "data": {"url": "https://api.beta.ons.gov.uk/v1/data?uri=employmentandlabourmarket/peopleinwork/earningsandworkinghours/timeseries/kai9/lms", "format": {"type": "json", "property": "months"}}, "title": {"text": "Regular income growth", "subtitle": "Regular Pay Growth (% monthly change)"}, "width": 300, "height": 300, "mark": {"type": "line", "color": "red"}, "encoding": {"x": {"field": "date", "type": "temporal", "title": "Year"}, "y": {"field": "value", "type": "quantitative", "title": "Regular Pay Growth (% monthly change)"}}}
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://api.beta.ons.gov.uk/v1/data?uri=employmentandlabourmarket/peopleinwork/earningsandworkinghours/timeseries/kai9/lms",
+    "format": {
+      "type": "json",
+      "property": "months"
+    }
+  },
+  "title": {
+    "text": "Regular Income Growth",
+    "subtitle": "Regular Pay Growth (% Monthly Change)",
+    "anchor": "start"
+  },
+  "width": 400,
+  "height": 300,
+  "mark": {
+    "type": "line",
+    "color": "red",
+    "point": true
+  },
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "title": "Year",
+      "axis": {"format": "%Y-%m"}
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "Regular Pay Growth (%)",
+      "scale": {"zero": false}
+    },
+    "tooltip": [
+      {"field": "date", "type": "temporal", "title": "Date"},
+      {"field": "value", "type": "quantitative", "title": "Pay Growth (%)"}
+    ]
+  }
+}
