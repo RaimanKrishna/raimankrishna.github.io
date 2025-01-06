@@ -1,0 +1,104 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Map of Indian states showing ruling parties (Party in Central Government vs Opposition)",
+  "width": 1000,
+  "height": 700,
+  "title": {
+    "text": "Ruling Party Map of Indian States",
+    "fontSize": 15,
+    "anchor": "middle"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/RaimanKrishna/raimankrishna.github.io/refs/heads/main/India_states.json",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.id",
+          "from": {
+            "data": {
+              "values": [
+                {"id": "INAP", "party": "Party in Central Government"},
+                {"id": "INUP", "party": "Party in Central Government"},
+                {"id": "INGJ", "party": "Party in Central Government"},
+                {"id": "INMP", "party": "Party in Central Government"},
+                {"id": "INHR", "party": "Party in Central Government"},
+                {"id": "INAS", "party": "Party in Central Government"},
+                {"id": "INOR", "party": "Party in Central Government"},
+                {"id": "INGA", "party": "Party in Central Government"},
+                {"id": "INTR", "party": "Party in Central Government"},
+                {"id": "INKA", "party": "Party in Central Government"},
+                {"id": "INBR", "party": "Party in Central Government"},
+                {"id": "INMH", "party": "Party in Central Government"},
+                {"id": "INCT", "party": "Party in Central Government"},
+                {"id": "INTL", "party": "Party in Central Government"},
+                {"id": "INSK", "party": "Party in Central Government"},
+                {"id": "INWB", "party": "Opposition"},
+                {"id": "INKL", "party": "Opposition"},
+                {"id": "INRJ", "party": "Opposition"},
+                {"id": "INTN", "party": "Opposition"},
+                {"id": "INDL", "party": "Opposition"},
+                {"id": "INPY", "party": "Opposition"},
+                {"id": "INPB", "party": "Opposition"},
+                {"id": "INJH", "party": "Opposition"},
+                {"id": "INML", "party": "Opposition"},
+                {"id": "INNL", "party": "Opposition"},
+                {"id": "INMZ", "party": "Opposition"},
+                {"id": "INHP", "party": "Opposition"},
+                {"id": "INJK", "party": "Opposition"},
+                {"id": "INLA", "party": "Opposition"},
+                {"id": "INLD", "party": "Opposition"},
+                {"id": "INMN", "party": "Opposition"},
+                {"id": "INAR", "party": "Opposition"}
+              ]
+            },
+            "key": "id",
+            "fields": ["party"]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#fff",
+        "strokeWidth": 1
+      },
+      "projection": {
+        "type": "mercator",
+        "center": [82, 23],
+        "scale": 1000
+      },
+      "encoding": {
+        "color": {
+          "field": "party",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Party in Central Government", "Opposition"],
+            "range": ["#006400", "#FFD700"]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "party",
+            "type": "nominal",
+            "title": "Ruling Party"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}
