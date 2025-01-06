@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scatter Chart: Government Effectiveness and Control of Corruption</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+    <h1>Scatter Chart: Government Effectiveness and Control of Corruption Over Time</h1>
+    <div id="scatter-chart"></div>
+    <p style="font-size: 12px; color: gray; text-align: center;">Data Source: World Bank</p> <!-- Source Mention -->
+
+    <script>
+        const spec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "title": "Government Effectiveness and Control of Corruption Over Time",
+            "data": {
+                "values": [
+                    {"Year": 2010, "Score": 1.552272, "Indicator": "Government Effectiveness"},
+                    {"Year": 2011, "Score": 1.513798, "Indicator": "Government Effectiveness"},
+                    {"Year": 2012, "Score": 1.521322, "Indicator": "Government Effectiveness"},
+                    {"Year": 2013, "Score": 1.516477, "Indicator": "Government Effectiveness"},
+                    {"Year": 2014, "Score": 1.461625, "Indicator": "Government Effectiveness"},
+                    {"Year": 2015, "Score": 1.432199, "Indicator": "Government Effectiveness"},
+                    {"Year": 2016, "Score": 1.440505, "Indicator": "Government Effectiveness"},
+                    {"Year": 2017, "Score": 1.517428, "Indicator": "Government Effectiveness"},
+                    {"Year": 2018, "Score": 1.536972, "Indicator": "Government Effectiveness"},
+                    {"Year": 2019, "Score": 1.453415, "Indicator": "Government Effectiveness"},
+                    {"Year": 2020, "Score": 1.274593, "Indicator": "Government Effectiveness"},
+                    {"Year": 2010, "Score": 1.265258, "Indicator": "Control of Corruption"},
+                    {"Year": 2011, "Score": 1.262119, "Indicator": "Control of Corruption"},
+                    {"Year": 2012, "Score": 1.402794, "Indicator": "Control of Corruption"},
+                    {"Year": 2013, "Score": 1.305925, "Indicator": "Control of Corruption"},
+                    {"Year": 2014, "Score": 1.371378, "Indicator": "Control of Corruption"},
+                    {"Year": 2015, "Score": 1.357721, "Indicator": "Control of Corruption"},
+                    {"Year": 2016, "Score": 1.330896, "Indicator": "Control of Corruption"},
+                    {"Year": 2017, "Score": 1.340533, "Indicator": "Control of Corruption"},
+                    {"Year": 2018, "Score": 1.292747, "Indicator": "Control of Corruption"},
+                    {"Year": 2019, "Score": 1.180357, "Indicator": "Control of Corruption"},
+                    {"Year": 2020, "Score": 1.037832, "Indicator": "Control of Corruption"}
+                ]
+            },
+            "mark": "point",
+            "encoding": {
+                "x": {
+                    "field": "Year",
+                    "type": "ordinal",
+                    "title": "Year"
+                },
+                "y": {
+                    "field": "Score",
+                    "type": "quantitative",
+                    "title": "Score"
+                },
+                "color": {
+                    "field": "Indicator",
+                    "type": "nominal",
+                    "title": "Indicator"
+                },
+                "tooltip": [
+                    {"field": "Year", "type": "ordinal", "title": "Year"},
+                    {"field": "Score", "type": "quantitative", "title": "Score"},
+                    {"field": "Indicator", "type": "nominal", "title": "Indicator"}
+                ]
+            }
+        };
+
+        // Embed the Vega-Lite visualization
+        vegaEmbed('#scatter-chart', spec).catch(console.error);
+    </script>
+</body>
+</html>
