@@ -163,6 +163,33 @@
         <img src="visualization.png" alt="Visualization of Scraped Data">
     </div>
 
+       <section>
+            <div class="chart-description">
+                <h2>Coding Challenge 6: Loops Dashboard </h2>
+                <h3>UK Economy Gross Value Added Timeseries Dashboard</h3>
+                <p>This dashboard dynamically loads nine charts using Vega-Lite specifications on various timeseries data on UK economy's gross value added in different sectors.
+                The data for this has been sourced from <a href="https://www.ons.gov.uk/"> ONS </a>. The notebook used for looping the ONS API in python is here - <a href="https://colab.research.google.com/drive/1k0NaONJwtt6mwEZfIa4XGhTth4XMT7q2">Google Colab Loops Notebook</a>.
+               </p>
+            </div>
+            <table>
+            <tr>
+            <td><figure id="Location24"></figure></td>
+            <td><figure id="Location25"></figure></td>
+            <td><figure id="Location26"></figure></td>
+            </tr>
+            <tr>
+            <td><figure id="Location27"></figure></td>
+            <td><figure id="Location28"></figure></td>
+            <td><figure id="Location29"></figure></td>
+            </tr>
+            <<tr>
+            <td><figure id="Location30"></figure></td>
+            <td><figure id="Location31"></figure></td>
+            <td><figure id="Location32"></figure></td>
+            </tr>
+            </table>
+         </section>
+         
 <section>
             <div class="chart-description">
                 <h2>Coding Challenge 7: Maps (WEEK 7) </h2>
@@ -231,6 +258,15 @@
         let figure_6_spec = "WK4.json"
         let figure_21_spec = "Same_Map.json"
         let figure_7_spec = "WK_4.json"
+        let figure_24_spe = "LOOP1.json"
+        let figure_25_spe = "LOOP2.json"
+        let figure_26_spe = "LOOP3.json"
+        let figure_27_spe = "LOOP4.json"
+        let figure_28_spe = "LOOP5.json"
+        let figure_29_spe = "LOOP6.json"
+        let figure_30_spe = "LOOP7.json"
+        let figure_31_spe = "LOOP8.json"
+        let figure_32_spe = "LOOP9.json"
         let figure_8_spec = "WK_5.json"
         let figure_12_spec = "WK7_Base_Map.json"
         let figure_13_spec = "WK7_india_choropleth_map.json"
@@ -249,7 +285,15 @@
         vegaEmbed('#Location6', figure_6_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_6
         vegaEmbed('#Location21', figure_21_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_21
         vegaEmbed('#Location7', figure_7_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_7
-        vegaEmbed('#Location8', figure_8_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_8
+        vegaEmbed('#Location24', figure_24_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_24
+        vegaEmbed('#Location25', figure_25_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_25
+        vegaEmbed('#Location26', figure_26_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_26
+        vegaEmbed('#Location27', figure_27_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_27
+        vegaEmbed('#Location28', figure_28_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_28
+        vegaEmbed('#Location29', figure_29_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_29
+        vegaEmbed('#Location30', figure_30_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_30
+        vegaEmbed('#Location31', figure_31_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_31
+        vegaEmbed('#Location32', figure_32_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_32
         vegaEmbed('#Location12', figure_12_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_12
         vegaEmbed('#Location13', figure_13_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_13
         vegaEmbed('#Location22', figure_22_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_22
