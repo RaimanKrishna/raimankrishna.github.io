@@ -1,0 +1,108 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 250,
+  "height": 400,
+  "data": {
+    "values": [
+      {"State": "Daman Diu and Dadra Nagar Haveli", "Category": "Door-to-Door Collection", "Discrepancy": 0.50},
+      {"State": "Chandigarh", "Category": "Door-to-Door Collection", "Discrepancy": 0.62},
+      {"State": "Jharkhand", "Category": "Door-to-Door Collection", "Discrepancy": 2.04},
+      {"State": "Meghalaya", "Category": "Door-to-Door Collection", "Discrepancy": 2.36},
+      {"State": "Karnataka", "Category": "Door-to-Door Collection", "Discrepancy": 2.95},
+      {"State": "Andaman and Nicobar Islands", "Category": "Door-to-Door Collection", "Discrepancy": 3.50},
+      {"State": "Haryana", "Category": "Door-to-Door Collection", "Discrepancy": 3.63},
+      {"State": "Delhi", "Category": "Door-to-Door Collection", "Discrepancy": 7.05},
+      {"State": "Odisha", "Category": "Door-to-Door Collection", "Discrepancy": 7.46},
+      {"State": "Andhra Pradesh", "Category": "Door-to-Door Collection", "Discrepancy": 7.59},
+      {"State": "Chandigarh", "Category": "Source Segregation", "Discrepancy": 3.25},
+      {"State": "Ladakh", "Category": "Source Segregation", "Discrepancy": 6.75},
+      {"State": "Andaman and Nicobar Islands", "Category": "Source Segregation", "Discrepancy": 17.00},
+      {"State": "Andhra Pradesh", "Category": "Source Segregation", "Discrepancy": 18.71},
+      {"State": "Mizoram", "Category": "Source Segregation", "Discrepancy": 19.40},
+      {"State": "Delhi", "Category": "Source Segregation", "Discrepancy": 20.39},
+      {"State": "Nagaland", "Category": "Source Segregation", "Discrepancy": 20.95},
+      {"State": "Odisha", "Category": "Source Segregation", "Discrepancy": 29.46},
+      {"State": "Maharashtra", "Category": "Source Segregation", "Discrepancy": 35.82},
+      {"State": "West Bengal", "Category": "Source Segregation", "Discrepancy": 36.37},
+      {"State": "Chandigarh", "Category": "Processing", "Discrepancy": 0.00},
+      {"State": "Uttar Pradesh", "Category": "Processing", "Discrepancy": 2.53},
+      {"State": "Maharashtra", "Category": "Processing", "Discrepancy": 6.26},
+      {"State": "Chhattisgarh", "Category": "Processing", "Discrepancy": 7.03},
+      {"State": "Madhya Pradesh", "Category": "Processing", "Discrepancy": 12.37},
+      {"State": "Odisha", "Category": "Processing", "Discrepancy": 17.93},
+      {"State": "Gujarat", "Category": "Processing", "Discrepancy": 22.54},
+      {"State": "Haryana", "Category": "Processing", "Discrepancy": 33.42},
+      {"State": "Daman Diu and Dadra Nagar Haveli", "Category": "Processing", "Discrepancy": 34.93},
+      {"State": "Andaman and Nicobar Islands", "Category": "Processing", "Discrepancy": 38.00}
+    ]
+  },
+  "hconcat": [
+    {
+      "title": "Door-to-Door Collection",
+      "mark": "circle",
+      "encoding": {
+        "x": {"field": "State", "type": "nominal", "axis": {"title": "States and Territories"}},
+        "y": {"field": "Discrepancy", "type": "quantitative", "axis": {"title": "Discrepancy (%)"}},
+        "size": {"field": "Discrepancy", "type": "quantitative", "legend": {"title": "Discrepancy Size (%)"}},
+        "color": {"field": "Category", "type": "nominal", "legend": {"title": "Category"}},
+        "tooltip": [
+          {"field": "State", "type": "nominal", "title": "State"},
+          {"field": "Category", "type": "nominal", "title": "Category"},
+          {"field": "Discrepancy", "type": "quantitative", "title": "Discrepancy (%)"}
+        ]
+      },
+      "transform": [
+        {
+          "filter": "datum.Category === 'Door-to-Door Collection' && datum.Discrepancy !== null && isFinite(datum.Discrepancy)"
+        }
+      ]
+    },
+    {
+      "title": "Source Segregation",
+      "mark": "circle",
+      "encoding": {
+        "x": {"field": "State", "type": "nominal", "axis": {"title": "States and Territories"}},
+        "y": {"field": "Discrepancy", "type": "quantitative", "axis": {"title": "Discrepancy (%)"}},
+        "size": {"field": "Discrepancy", "type": "quantitative", "legend": {"title": "Discrepancy Size (%)"}},
+        "color": {"field": "Category", "type": "nominal", "legend": {"title": "Category"}},
+        "tooltip": [
+          {"field": "State", "type": "nominal", "title": "State"},
+          {"field": "Category", "type": "nominal", "title": "Category"},
+          {"field": "Discrepancy", "type": "quantitative", "title": "Discrepancy (%)"}
+        ]
+      },
+      "transform": [
+        {
+          "filter": "datum.Category === 'Source Segregation' && datum.Discrepancy !== null && isFinite(datum.Discrepancy)"
+        }
+      ]
+    },
+    {
+      "title": "Processing",
+      "mark": "circle",
+      "encoding": {
+        "x": {"field": "State", "type": "nominal", "axis": {"title": "States and Territories"}},
+        "y": {"field": "Discrepancy", "type": "quantitative", "axis": {"title": "Discrepancy (%)"}},
+        "size": {"field": "Discrepancy", "type": "quantitative", "legend": {"title": "Discrepancy Size (%)"}},
+        "color": {"field": "Category", "type": "nominal", "legend": {"title": "Category"}},
+        "tooltip": [
+          {"field": "State", "type": "nominal", "title": "State"},
+          {"field": "Category", "type": "nominal", "title": "Category"},
+          {"field": "Discrepancy", "type": "quantitative", "title": "Discrepancy (%)"}
+        ]
+      },
+      "transform": [
+        {
+          "filter": "datum.Category === 'Processing' && datum.Discrepancy !== null && isFinite(datum.Discrepancy)"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "axis": {
+      "labelAngle": -45,
+      "labelFontSize": 12,
+      "titleFontSize": 14
+    }
+  }
+}
