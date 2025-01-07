@@ -81,18 +81,23 @@
 
 <style>
     .chart-container {
-        display: flex;
-        justify-content: center;
-        gap: 20px; /* Space between charts */
+        display: flex; /* Use flexbox for side-by-side alignment */
+        justify-content: space-around; /* Space out the charts evenly */
+        align-items: center; /* Align charts vertically in the center */
+        gap: 20px; /* Space between the charts */
     }
     figure {
-        width: 45%; /* Adjust chart size */
+        width: 45%; /* Adjust the width of each chart */
+        height: 300px; /* Set a consistent height for both charts */
+        border: 1px solid #ccc; /* Optional: Add a border for visual clarity */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better presentation */
     }
     figcaption {
         text-align: center;
         margin-top: 10px;
     }
 </style>
+
 
 
         <!-- Part III: Data Discrepancies -->
