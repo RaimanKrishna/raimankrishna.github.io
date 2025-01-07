@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"> 
-<head>    
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -17,54 +17,69 @@
             padding: 0;
         }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Header Styling */
+        .header {
+            background-color: #f4f4f4;
             padding: 20px;
+            text-align: center;
         }
 
         .header h1 {
             font-size: 1.8em;
-            text-align: center;
         }
 
         .header p {
-            text-align: center;
+            margin-top: 10px;
         }
 
-        /* Style for chart sections */
+        /* Main container styling */
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        /* Section styling */
         .chart-section {
             margin-bottom: 40px;
         }
 
         .chart-container {
-            display: flex;
-            flex-wrap: wrap; /* Allow wrapping to new rows if charts don't fit in one row */
-            justify-content: center; /* Center the charts horizontally */
-            gap: 20px; /* Space between charts */
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two-column grid for charts */
+            gap: 20px;
+            margin-top: 20px;
         }
 
+        /* Figure (Chart) styling */
         figure {
-            flex: 1 1 45%; /* Flex-grow, flex-shrink, and basis to make charts responsive */
-            max-width: 600px; /* Prevent the charts from becoming too large */
-            min-width: 300px; /* Prevent the charts from shrinking too much */
-            height: 350px; /* Set a consistent height for charts */
-            border: 1px solid #ccc; /* Optional: Add a border for clarity */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+            width: 100%;
+            height: 350px;
+            margin: 0;
             padding: 10px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             background-color: #fff;
         }
 
+        /* Figcaption styling */
         figcaption {
             text-align: center;
             font-size: 0.9em;
             margin-top: 5px;
         }
+
+        /* Responsive design for small screens */
+        @media (max-width: 768px) {
+            .chart-container {
+                grid-template-columns: 1fr; /* Stack charts vertically on small screens */
+            }
+        }
     </style>
 </head>
 
-<body> 
+<body>
     <div class="header">
         <div class="container">
             <h1>Raiman Krishna - Project<br>
