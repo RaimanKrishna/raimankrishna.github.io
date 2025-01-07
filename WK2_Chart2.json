@@ -9,8 +9,8 @@
     "color": "#000000",
     "subtitleColor": "#000000"
   },
-  "height": 250,
-  "width": "container",
+  "height": 300,
+  "width": 500, 
   "autosize": {
     "type": "fit",
     "contains": "padding"
@@ -30,7 +30,11 @@
     "type": "line",
     "color": "#f4134d",
     "strokeWidth": 2,
-    "point": true
+    "point": {
+      "filled": true,
+      "fill": "#f4134d",
+      "size": 50
+    }
   },
   "encoding": {
     "x": {
@@ -53,8 +57,16 @@
       }
     },
     "tooltip": [
-      {"field": "date", "type": "temporal", "title": "Date"},
+      {"field": "date", "type": "temporal", "title": "Date", "format": "%Y-%m"},
       {"field": "value", "type": "quantitative", "title": "Index Value"}
     ]
+  },
+  "config": {
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 14,
+      "labelColor": "#333",
+      "titleColor": "#333"
+    }
   }
 }
