@@ -4,166 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Raiman Krishna - Project</title>
+    <title>Swachh Bharat Mission: Analyzing SBM & Swachh Survekshan</title>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <style>
-        /* General styling for the body */
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Header Styling */
-        .header {
-            background-color: #f4f4f4;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 1.8em;
-        }
-
-        .header p {
-            margin-top: 10px;
-        }
-
-        /* Main container styling */
-        .container {
-            width: 80%;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 10px;
-        }
-
-        /* Section styling */
-        .chart-section {
-            margin-bottom: 40px;
-        }
-
-        .chart-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* Two-column grid for charts */
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        /* Figure (Chart) styling */
-        figure {
-            width: 100%;
-            height: 350px;
-            margin: 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-        }
-
-        /* Figcaption styling */
-        figcaption {
-            text-align: center;
-            font-size: 0.9em;
-            margin-top: 5px;
-        }
-
-        /* Responsive design for small screens */
-        @media (max-width: 768px) {
-            .chart-container {
-                grid-template-columns: 1fr; /* Stack charts vertically on small screens */
-            }
-        }
-    </style>
 </head>
-
 <body>
     <div class="header">
         <div class="container">
-            <h1>Raiman Krishna - Project<br>
-                Data Science Project: An Analysis of Data Discrepancies in Clean India Mission (Swachh Bharat Mission), India
-            </h1>
+            <h1>Project: Swachh Bharat Mission Analysis</h1>
             <p>
-                <a href="index.html">Home</a> | <a href="https://www.linkedin.com/in/raiman-krishna-90b108230/">LinkedIn</a> | 
-                <a href="https://github.com/RaimanKrishna/raimankrishna.github.io">GitHub</a> |  <a href="portfolio.html">Portfolio</a>
+                <a href="index.html">Home</a> | <a href="https://www.linkedin.com/in/yourname">LinkedIn</a> | 
+                <a href="https://github.com/yourname">GitHub</a> | <a href="portfolio.html">Portfolio</a><br><br>
+                This page presents my analysis of the Swachh Bharat Mission (SBM) and its correlation with Swachh Survekshan data.
             </p>
         </div>
     </div>
 
     <main class="container">
-
-        <!-- Part I: Introduction -->
-        <section class="chart-section">
-            <h2>Part I: Introduction</h2>
-            <p>Swachh Survekshan is an annual urban cleanliness survey under the Swachh Bharat Mission (SBM), launched to encourage cities to improve sanitation and waste management practices. It ranks cities based on their performance, fostering healthy competition among urban local bodies (ULBs).</p>
-            <div class="chart-container">
-                <figure id="chart1"></figure>
+        <section>
+            <div class="chart-description">
+                <h2>Part I: Introduction</h2>
+                <p><b>Objective:</b> This project analyzes the Swachh Bharat Mission (SBM), focusing on Swachh Survekshan rankings, state performance, and factors influencing SBM outcomes across various states in India.</p>
+                <p><b>Data:</b> Swachh Survekshan Reports, SBM data from Ministry of Housing and Urban Affairs, and Census data. <a href="https://www.swachhbharaturban.gov.in/sbm-home">Swachh Bharat Mission Website</a></p>
             </div>
-            <figcaption>Chart 1: Swachh Survekshan Rankings Across Indian States</figcaption>
         </section>
 
-        <!-- Part II: State-wise Rankings -->
-        <section class="chart-section">
-            <h2>Part II: State-wise Rankings in Swachh Survekshan</h2>
-            <p><b>Objective:</b> Overview of state rankings and ruling political parties.</p>
-            <div class="chart-container">
-                <figure id="chart2"></figure>
-                <figure id="chart3"></figure>
+        <section>
+            <div class="chart-description">
+                <h2>Part II: State-wise Rankings in Swachh Survekshan</h2>
+                <p><b>Objective:</b> This section visualizes state-wise rankings in Swachh Survekshan over the years, with a focus on key performing states.</p>
+                <p><b>Data Source:</b> Swachh Survekshan Rankings (2016-2023)</p>
             </div>
-            <figcaption>
-                Chart 2: State Rankings in Swachh Survekshan 2023<br>
-                Chart 3: Ruling Parties in States
-            </figcaption>
+            
+            <center><figure id="StateRankingsChart"></figure></center>
+            <figcaption>Chart 1: Swachh Survekshan Rankings of States (2016-2023)</figcaption><br>
+
+            <div class="chart-description">
+                <p><b>Analysis:</b> The chart highlights the top-performing states such as Indore, Surat, and Ambikapur, alongside regions lagging behind. Patterns suggest a strong link between political leadership, funding, and Swachh Bharat outcomes.</p>
+            </div>
         </section>
 
-        <!-- Part III: Data Discrepancies -->
-        <section class="chart-section">
-            <h2>Part III: Data Discrepancies in SBM</h2>
-            <p>This section compares the claimed data for door-to-door collection, source segregation, and waste generation with the MIS data.</p>
-            <div class="chart-container">
-                <figure id="chart4"></figure>
-                <figure id="chart5"></figure>
-                <figure id="chart6"></figure>
+        <section>
+            <div class="chart-description">
+                <h2>Part III: Relationship Between Sanitation and Health Indicators</h2>
+                <p><b>Objective:</b> Explore the relationship between sanitation outcomes in Swachh Bharat and key health indicators, such as child mortality, stunting, and maternal health.</p>
+                <center><figure id="SanitationHealthCorrelation"></figure></center>
+                <figcaption>Chart 2: Correlation Between Sanitation and Health Indicators</figcaption><br>
+
+                <div class="chart-description">
+                    <p><b>Interpretation:</b> A negative correlation between child malnutrition and access to improved sanitation is observed. States with higher sanitation coverage report lower incidences of stunting and child mortality.</p>
+                </div>
             </div>
-            <figcaption>
-                Chart 4: Door-to-Door Collection (Claimed vs MIS Data)<br>
-                Chart 5: Source Segregation (Claimed vs MIS Data)<br>
-                Chart 6: Waste Generation (Claimed vs MIS Data)
-            </figcaption>
         </section>
 
-        <!-- Part IV: Policy Recommendations -->
-        <section class="chart-section">
-            <h2>Part IV: Policy Response</h2>
-            <p>History shows that modern sewage systems in large cities like London and New York transformed public health by reducing diseases. Public health policy in India should prioritize improving sewage collection and treatment systems in urban and semi-urban areas to meet the goals of becoming an upper-middle-income country in the next decade.</p>
-            <div class="chart-container">
-                <figure id="chart7"></figure>
+        <section>
+            <div class="chart-description">
+                <h2>Part IV: Mapping Sanitation Coverage Across India</h2>
+                <p><b>Objective:</b> Analyze the spatial distribution of sanitation infrastructure in India using choropleth mapping techniques.</p>
+                
+                <center><figure id="SanitationCoverageMap"></figure></center>
+                <figcaption>Chart 3: Map of Sanitation Coverage by State</figcaption><br>
+
+                <div class="chart-description">
+                    <p><b>Insight:</b> States like Himachal Pradesh and Kerala show high sanitation coverage, while states such as Uttar Pradesh and Bihar show room for improvement in infrastructure and access to sanitation.</p>
+                </div>
             </div>
-            <figcaption>Chart 7: Policy Recommendations for Improving Sanitation</figcaption>
         </section>
 
-    </main>
+        <section>
+            <div class="chart-description">
+                <h2>Part V: SBM Achievements and Challenges</h2>
+                <p><b>Objective:</b> Review the progress of Swachh Bharat Mission in terms of coverage, behavior change, and challenges faced in rural and urban areas.</p>
+                
+                <center><figure id="SBMAchievementsChart"></figure></center>
+                <figcaption>Chart 4: SBM Achievements in Rural and Urban Areas</figcaption><br>
 
-    <script>
-        const specs = {
-            chart1: "Swachh_Survekshan_Ranking.json",
-            chart2: "WK7_india_choropleth_map.json",
-            chart3: "BJP.json",
-            chart4: "door_to_door.json",
-            chart5: "segregation.json",
-            chart6: "processing.json",
-            chart7: "policy_recommendations.json"
-        };
+                <div class="chart-description">
+                    <p><b>Challenges:</b> Despite impressive progress in terms of coverage, challenges persist in sustaining behavior change, maintaining cleanliness, and ensuring proper waste management systems in urban slums.</p>
+                </div>
+            </div>
+        </section>
 
-        vegaEmbed('#chart1', specs.chart1);
-        vegaEmbed('#chart2', specs.chart2);
-        vegaEmbed('#chart3', specs.chart3);
-        vegaEmbed('#chart4', specs.chart4);
-        vegaEmbed('#chart5', specs.chart5);
-        vegaEmbed('#chart6', specs.chart6);
-        vegaEmbed('#chart7', specs.chart7);
-    </script>
-</body>
-</html>
+        <section>
+            <div class="chart-description">
+                <h2>Part VI: Conclusion</h2>
+                <p>The Swachh Bharat Mission has been highly successful in improving sanitation outcomes across India, but there are regional disparities. Focused interventions in underperforming states and behavior change campaigns will be crucial for achieving the vision of a clean India by 2030.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="chart-description">
+                <h3>Bibliography</h3>
+                <p>Swachh Bharat Mission: <a href="https://www.swachhbharaturban.gov.in/sbm-home">Official SBM Website</a></p>
+                <p>Swachh Survekshan Reports: <a href="https://www.swac
