@@ -14,22 +14,22 @@
     --radius-lg: 1rem;
     --max-width: 80rem;
     --container-padding: clamp(1rem, 5vw, 2rem);
-  }
+}
 
-  *,
-  *::before,
-  *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
 
-  html {
+html {
     font-size: 16px;
     scroll-behavior: smooth;
-  }
+}
 
-  body {
+body {
     font-family: system-ui, -apple-system, sans-serif;
     color: var(--text-color);
     line-height: 1.75;
@@ -37,59 +37,59 @@
     -webkit-font-smoothing: antialiased;
     padding: 0;
     margin: 0;
-  }
+}
 
-  .container {
+.container {
     width: min(var(--max-width), 100% - var(--container-padding) * 2);
     margin-inline: auto;
-  }
+    padding: clamp(1rem, 5vw, 2rem);  /* Consistent padding */
+}
 
-  h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 {
     color: var(--heading-color);
     line-height: 1.2;
     font-weight: 600;
     margin-bottom: 1rem;
-  }
+}
 
-  h1 {
+h1 {
     font-size: clamp(2rem, 5vw, 3rem);
-  }
+}
 
-  h2 {
+h2 {
     font-size: clamp(1.5rem, 4vw, 2.25rem);
     margin-top: 1rem;
     color: var(--primary-color); /* Using Optimism Blue for section headings */
-  }
+}
 
-  h3 {
+h3 {
     font-size: clamp(1.25rem, 3vw, 1.75rem);
-  }
+}
 
-  p {
+p {
     margin-bottom: 1.5rem;
     max-width: 1100px;
-  }
+}
 
-  section {
+section {
     padding: clamp(2rem, 5vw, 4rem) 0;
-    background-color: var(--section-bg-color);
-    border-radius: var(--radius-lg);
     margin-bottom: 2rem;
     box-shadow: var(--shadow-md);
-    border: 1px solid rgba(61, 61, 63, 0.1); /* Subtle border using Scuffed Dark Grey */
+    border: 1px solid rgba(61, 61, 63, 0.1);
     max-width: 95%;
-  }
+    min-height: 400px; /* Ensure sections have the same minimum height */
+}
 
-  .header {
+.header {
     background: var(--secondary-color); /* Using Scuffed Dark Grey for header */
     color: white;
     padding: clamp(2rem, 5vw, 4rem) 0;
     margin-bottom: 2rem;
     position: relative;
     overflow: hidden;
-  }
+}
 
-  .header::after {
+.header::after {
     content: '';
     position: absolute;
     top: 0;
@@ -98,16 +98,16 @@
     bottom: 0;
     background: linear-gradient(45deg, var(--primary-color) 0%, transparent 100%);
     opacity: 0.1;
-  }
+}
 
-  .header h1, .header p {
+.header h1, .header p {
     color: white;
     margin: 0;
     position: relative;
     z-index: 1;
-  }
+}
 
-  .header a {
+.header a {
     color: white;
     text-decoration: none;
     padding: 0.5rem 1rem;
@@ -115,28 +115,28 @@
     transition: all 0.2s ease;
     position: relative;
     z-index: 1;
-  }
+}
 
-  .header a:hover {
+.header a:hover {
     background-color: var(--primary-color);
     transform: translateY(-2px);
-  }
+}
 
-  figure {
+figure {
     margin: 2rem 0;
     padding: 1rem;
     background: white;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     transition: transform 0.2s ease;
-  }
+}
 
-  figure:hover {
+figure:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
-  }
+}
 
-  figcaption {
+figcaption {
     margin-top: 1rem;
     font-size: 0.875rem;
     color: var(--secondary-color);
@@ -146,49 +146,51 @@
     letter-spacing: 0.02em;
     max-width: 90%;
     line-height: 1.5;
-  }
+}
 
-  img {
+img {
     max-width: 100%;
     height: auto;
     border-radius: var(--radius-md);
     margin: 1rem 0;
-  }
+}
 
-  .chart-description {
+.chart-description {
     padding: 0 clamp(1rem, 5vw, 2rem);
-  }
+}
 
-  #chartGrid {
+#chartGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     padding: 1rem;
-  }
+}
 
-  a {
+a {
     color: var(--primary-color);
     text-decoration: none;
     transition: all 0.2s ease;
     font-weight: 500;
-  }
+}
 
-  a:hover {
+a:hover {
     color: var(--secondary-color);
     text-decoration: underline;
-  }
+}
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     section {
-      margin: 1rem;
+        margin: 1rem;
+        padding: 1rem;  /* Adjust padding for smaller screens */
     }
-    
+
     .header {
-      text-align: center;
+        text-align: center;
     }
-    
+
     .header a {
-      display: inline-block;
-      margin: 0.5rem;
+        display: inline-block;
+        margin: 0.5rem;
     }
-  }
+}
+
