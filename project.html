@@ -97,4 +97,21 @@
             <div class="chart-description">
                 <h3>Bibliography</h3>
                 <p>Swachh Bharat Mission: <a href="https://www.swachhbharaturban.gov.in/sbm-home">Official SBM Website</a></p>
-                <p>Swachh Survekshan Reports: <a href="https://www.swac
+                <p>Swachh Survekshan Reports: <a href="https://www.swachhbharaturban.gov.in/swachh-survekshan">Swachh Survekshan Portal</a></p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const stateRankingsSpec = "state_rankings.json"; 
+        const healthCorrelationSpec = "sanitation_health_correlation.json"; 
+        const sanitationMapSpec = "sanitation_coverage_map.json"; 
+        const sbmAchievementsSpec = "sbm_achievements.json"; 
+
+        vegaEmbed('#StateRankingsChart', stateRankingsSpec);
+        vegaEmbed('#SanitationHealthCorrelation', healthCorrelationSpec);
+        vegaEmbed('#SanitationCoverageMap', sanitationMapSpec);
+        vegaEmbed('#SBMAchievementsChart', sbmAchievementsSpec);
+    </script>
+</body>
+</html>
