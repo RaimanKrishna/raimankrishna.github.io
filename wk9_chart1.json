@@ -1,0 +1,68 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Government Effectiveness and Control of Corruption (2010-2020)",
+    "subtitle": "Source: World Bank"
+  },
+  "data": {
+    "values": [
+      {"Year": 2010, "Indicator": "Government Effectiveness", "Score": 1.55227208137512},
+      {"Year": 2010, "Indicator": "Control of Corruption", "Score": 1.26525807380676},
+      {"Year": 2011, "Indicator": "Government Effectiveness", "Score": 1.5137984752655},
+      {"Year": 2011, "Indicator": "Control of Corruption", "Score": 1.26211905479431},
+      {"Year": 2012, "Indicator": "Government Effectiveness", "Score": 1.5213223695755},
+      {"Year": 2012, "Indicator": "Control of Corruption", "Score": 1.40279400348663},
+      {"Year": 2013, "Indicator": "Government Effectiveness", "Score": 1.51647663116455},
+      {"Year": 2013, "Indicator": "Control of Corruption", "Score": 1.30592489242554},
+      {"Year": 2014, "Indicator": "Government Effectiveness", "Score": 1.46162545681},
+      {"Year": 2014, "Indicator": "Control of Corruption", "Score": 1.37137806415558},
+      {"Year": 2015, "Indicator": "Government Effectiveness", "Score": 1.43219923973083},
+      {"Year": 2015, "Indicator": "Control of Corruption", "Score": 1.35772120952606},
+      {"Year": 2016, "Indicator": "Government Effectiveness", "Score": 1.44050490856171},
+      {"Year": 2016, "Indicator": "Control of Corruption", "Score": 1.33089566230774},
+      {"Year": 2017, "Indicator": "Government Effectiveness", "Score": 1.51742815971375},
+      {"Year": 2017, "Indicator": "Control of Corruption", "Score": 1.34053254127502},
+      {"Year": 2018, "Indicator": "Government Effectiveness", "Score": 1.53697216510773},
+      {"Year": 2018, "Indicator": "Control of Corruption", "Score": 1.2927473783493},
+      {"Year": 2019, "Indicator": "Government Effectiveness", "Score": 1.45341503620148},
+      {"Year": 2019, "Indicator": "Control of Corruption", "Score": 1.18035709857941},
+      {"Year": 2020, "Indicator": "Government Effectiveness", "Score": 1.27459323406219},
+      {"Year": 2020, "Indicator": "Control of Corruption", "Score": 1.03783190250397}
+    ]
+  },
+  "mark": {
+    "type": "point",
+    "clip": true
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "quantitative",
+      "title": "Year"
+    },
+    "y": {
+      "field": "Score",
+      "type": "quantitative",
+      "title": "Score",
+      "scale": {
+        "domain": [1, 1.5]
+      }
+    },
+    "color": {
+      "field": "Indicator",
+      "type": "nominal",
+      "title": "Indicator"
+    },
+    "tooltip": [
+      {"field": "Year", "type": "quantitative", "title": "Year"},
+      {"field": "Score", "type": "quantitative", "title": "Score"},
+      {"field": "Indicator", "type": "nominal", "title": "Indicator"}
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    },
+    "background": "white"
+  }
+}
