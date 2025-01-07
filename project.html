@@ -8,6 +8,60 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <style>
+        /* General styling for the body */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header h1 {
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .header p {
+            text-align: center;
+        }
+
+        /* Style for chart sections */
+        .chart-section {
+            margin-bottom: 40px;
+        }
+
+        .chart-container {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping to new rows if charts don't fit in one row */
+            justify-content: center; /* Center the charts horizontally */
+            gap: 20px; /* Space between charts */
+        }
+
+        figure {
+            flex: 1 1 45%; /* Flex-grow, flex-shrink, and basis to make charts responsive */
+            max-width: 600px; /* Prevent the charts from becoming too large */
+            min-width: 300px; /* Prevent the charts from shrinking too much */
+            height: 350px; /* Set a consistent height for charts */
+            border: 1px solid #ccc; /* Optional: Add a border for clarity */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        figcaption {
+            text-align: center;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 
 <body> 
@@ -15,12 +69,10 @@
         <div class="container">
             <h1>Raiman Krishna - Project<br>
                 Data Science Project: An Analysis of Data Discrepancies in Clean India Mission (Swachh Bharat Mission), India
-            </h1><br>
+            </h1>
             <p>
                 <a href="index.html">Home</a> | <a href="https://www.linkedin.com/in/raiman-krishna-90b108230/">LinkedIn</a> | 
-                <a href="https://github.com/RaimanKrishna/raimankrishna.github.io">GitHub</a> |  <a href="portfolio.html">Portfolio</a> <br><br>
-                This page acts as my project page for the PP434: Automated Data Visualisation for Policymaking course, part of the MPP programme at LSE. 
-                Aims: The aim of this project is to analyze discrepancies between the claimed SBM data (door-to-door collection, segregation, and waste generation) and the Management Information System (MIS) data, and how these discrepancies correlate with the Swachh Survekshan rankings of states. 
+                <a href="https://github.com/RaimanKrishna/raimankrishna.github.io">GitHub</a> |  <a href="portfolio.html">Portfolio</a>
             </p>
         </div>
     </div>
@@ -28,109 +80,53 @@
     <main class="container">
 
         <!-- Part I: Introduction -->
-        <section>
-            <div class="chart-description">
-                <h2>Part I: Introduction</h2>
-                <p><b>Overview:</b> Introduction to Swachh Survekshan and Marking Criteria</p>
-                <p>
-                    Swachh Survekshan is an annual urban cleanliness survey under the Swachh Bharat Mission (SBM), launched to encourage cities to improve sanitation and waste management practices. It ranks cities based on their performance, fostering healthy competition among urban local bodies (ULBs).
-                </p>
-                <h3>Evaluation Parameters</h3>
-                <p>The survey uses a comprehensive framework with 9,500 marks, distributed across:</p>
-                <ul>
-                    <li><b>Service Level Progress (51%)</b>  
-                        <ul>
-                            <li><b>Marks:</b> 4,830</li>
-                            <li>Assesses waste collection, segregation, processing, and sustainable practices.</li>
-                        </ul>
-                    </li>
-                    <li><b>Certification (26%)</b>  
-                        <ul>
-                            <li><b>Marks:</b> 2,500</li>
-                            <li>Includes certifications like ODF (Open Defecation Free) and Garbage-Free City ratings.</li>
-                        </ul>
-                    </li>
-                    <li><b>Citizens' Voice (23%)</b>  
-                        <ul>
-                            <li><b>Marks:</b> 2,170</li>
-                            <li>Evaluates citizen participation, awareness, and feedback on cleanliness initiatives.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <p><b>Data:</b> Swachh Bharat Mission (Urban), Swachh Survekshan (Cleanliness Survey) 2023, State Urban Development Departments, Census of India (2011).</p>
+        <section class="chart-section">
+            <h2>Part I: Introduction</h2>
+            <p>Swachh Survekshan is an annual urban cleanliness survey under the Swachh Bharat Mission (SBM), launched to encourage cities to improve sanitation and waste management practices. It ranks cities based on their performance, fostering healthy competition among urban local bodies (ULBs).</p>
+            <div class="chart-container">
+                <figure id="chart1"></figure>
             </div>
-            <center><figure id="chart1"></figure></center>
-            <figcaption>Chart 1: Swachh Survekshan Rankings Across Indian States</figcaption> 
+            <figcaption>Chart 1: Swachh Survekshan Rankings Across Indian States</figcaption>
+        </section>
 
-            <section>
-    <div class="chart-description">
-        <h2>Part II: State-wise Rankings in Swachh Survekshan</h2>     
-        <p><b>Objectives:</b> Provide an overview of the Swachh Survekshan rankings for all states. This sets the context for the analysis and highlights differences in performance.</p>
-    </div>
-    <div class="chart-container">
-        <!-- Chart 2 -->
-        <figure id="chart2"></figure>
-        <figcaption>Chart 2: State Rankings in Swachh Survekshan 2023</figcaption>
-        
-        <!-- Chart 3 -->
-        <figure id="chart3"></figure>
-        <figcaption>Chart 3: Ruling Parties in State</figcaption>
-    </div>
-</section>
-
-<style>
-    .chart-container {
-        display: block; /* Arrange charts in a vertical stack */
-        margin: 0 auto; /* Center the container */
-    }
-    figure {
-        width: 70%; /* Adjust the chart width for clarity */
-        height: 300px; /* Set a consistent height */
-        margin: 20px auto; /* Center each chart and add spacing */
-        border: 1px solid #ccc; /* Optional: Add a border for clarity */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
-    }
-    figcaption {
-        text-align: center;
-        margin-top: 5px;
-        font-size: 0.9em; /* Caption font size */
-    }
-</style>
-
-
-      
-    
+        <!-- Part II: State-wise Rankings -->
+        <section class="chart-section">
+            <h2>Part II: State-wise Rankings in Swachh Survekshan</h2>
+            <p><b>Objective:</b> Overview of state rankings and ruling political parties.</p>
+            <div class="chart-container">
+                <figure id="chart2"></figure>
+                <figure id="chart3"></figure>
+            </div>
+            <figcaption>
+                Chart 2: State Rankings in Swachh Survekshan 2023<br>
+                Chart 3: Ruling Parties in States
+            </figcaption>
+        </section>
 
         <!-- Part III: Data Discrepancies -->
-        <section>
-            <div class="chart-description">
-                <h2>Part III: Data Discrepancies in SBM</h2>
-                <p>This section compares the claimed data for door-to-door collection, source segregation, and waste generation with the MIS data.</p>
+        <section class="chart-section">
+            <h2>Part III: Data Discrepancies in SBM</h2>
+            <p>This section compares the claimed data for door-to-door collection, source segregation, and waste generation with the MIS data.</p>
+            <div class="chart-container">
+                <figure id="chart4"></figure>
+                <figure id="chart5"></figure>
+                <figure id="chart6"></figure>
             </div>
-            <center><figure id="chart4"></figure></center>
-            <figcaption>Chart 3: Door-to-Door Collection (Claimed vs MIS Data)</figcaption>
-            <center><figure id="chart5"></figure></center>
-            <figcaption>Chart 4: Source Segregation (Claimed vs MIS Data)</figcaption>
-            <center><figure id="chart6"></figure></center>
-            <figcaption>Chart 5: Waste Generation (Claimed vs MIS Data)</figcaption>
+            <figcaption>
+                Chart 4: Door-to-Door Collection (Claimed vs MIS Data)<br>
+                Chart 5: Source Segregation (Claimed vs MIS Data)<br>
+                Chart 6: Waste Generation (Claimed vs MIS Data)
+            </figcaption>
         </section>
 
-        <!-- Part IV: Policy Response -->
-        <section>
-            <div class="chart-description">   
-                <h2>Part IV: Policy Response</h2>
-                <p>History shows that modern sewage systems in large cities like London and New York transformed public health by reducing diseases. Public health policy in India should prioritize improving sewage collection and treatment systems in urban and semi-urban areas to meet the goals of becoming an upper-middle-income country in the next decade.</p>
+        <!-- Part IV: Policy Recommendations -->
+        <section class="chart-section">
+            <h2>Part IV: Policy Response</h2>
+            <p>History shows that modern sewage systems in large cities like London and New York transformed public health by reducing diseases. Public health policy in India should prioritize improving sewage collection and treatment systems in urban and semi-urban areas to meet the goals of becoming an upper-middle-income country in the next decade.</p>
+            <div class="chart-container">
+                <figure id="chart7"></figure>
             </div>
-            <center><figure id="chart7"></figure></center>
-            <figcaption>Chart 6: Policy Recommendations for Improving Sanitation</figcaption>
-        </section>
-
-        <!-- Part V: Conclusion -->
-        <section>
-            <div class="chart-description">   
-                <h2>Part V: Conclusion</h2>
-                <p>Improved sanitation reduces child malnutrition and mortality across Indian states. Focused policy interventions can bridge existing gaps and accelerate progress toward better public health outcomes.</p>
-            </div>
+            <figcaption>Chart 7: Policy Recommendations for Improving Sanitation</figcaption>
         </section>
 
     </main>
@@ -140,7 +136,7 @@
             chart1: "Swachh_Survekshan_Ranking.json",
             chart2: "WK7_india_choropleth_map.json",
             chart3: "BJP.json",
-            chart4: "door to door.json",
+            chart4: "door_to_door.json",
             chart5: "segregation.json",
             chart6: "processing.json",
             chart7: "policy_recommendations.json"
@@ -156,4 +152,3 @@
     </script>
 </body>
 </html>
-
