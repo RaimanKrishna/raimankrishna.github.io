@@ -1,0 +1,58 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "values": [
+      {"State": "Kerala", "Category": "Door-to-Door Collection", "Discrepancy": 77.0},
+      {"State": "Manipur", "Category": "Door-to-Door Collection", "Discrepancy": 76.2},
+      {"State": "Tripura", "Category": "Door-to-Door Collection", "Discrepancy": 68.981},
+      {"State": "Mizoram", "Category": "Door-to-Door Collection", "Discrepancy": 31.75},
+      {"State": "Assam", "Category": "Door-to-Door Collection", "Discrepancy": 30.088},
+      {"State": "Arunachal Pradesh", "Category": "Door-to-Door Collection", "Discrepancy": 19.976},
+      {"State": "Nagaland", "Category": "Door-to-Door Collection", "Discrepancy": 18.25},
+      {"State": "Puducherry", "Category": "Door-to-Door Collection", "Discrepancy": 26.474},
+      {"State": "Sikkim", "Category": "Door-to-Door Collection", "Discrepancy": 28.071},
+      {"State": "Ladakh", "Category": "Door-to-Door Collection", "Discrepancy": 21.5},
+      {"State": "Tripura", "Category": "Source Segregation", "Discrepancy": 95.863},
+      {"State": "Daman Diu and Dadra Nagar Haveli", "Category": "Source Segregation", "Discrepancy": 59.333},
+      {"State": "Puducherry", "Category": "Source Segregation", "Discrepancy": 58.824},
+      {"State": "Goa", "Category": "Source Segregation", "Discrepancy": 56.25},
+      {"State": "Kerala", "Category": "Source Segregation", "Discrepancy": 62.094},
+      {"State": "Tamil Nadu", "Category": "Source Segregation", "Discrepancy": 74.651},
+      {"State": "Maharashtra", "Category": "Source Segregation", "Discrepancy": 35.82},
+      {"State": "Madhya Pradesh", "Category": "Source Segregation", "Discrepancy": 49.356},
+      {"State": "Telangana", "Category": "Source Segregation", "Discrepancy": 43.478},
+      {"State": "Punjab", "Category": "Source Segregation", "Discrepancy": 46.933},
+      {"State": "Arunachal Pradesh", "Category": "Processing", "Discrepancy": 119.71},
+      {"State": "Mizoram", "Category": "Processing", "Discrepancy": 101.12},
+      {"State": "Manipur", "Category": "Processing", "Discrepancy": 100.46},
+      {"State": "West Bengal", "Category": "Processing", "Discrepancy": 98.7},
+      {"State": "Puducherry", "Category": "Processing", "Discrepancy": 95.93},
+      {"State": "Nagaland", "Category": "Processing", "Discrepancy": 94.99},
+      {"State": "Meghalaya", "Category": "Processing", "Discrepancy": 89.37},
+      {"State": "Assam", "Category": "Processing", "Discrepancy": 87.52},
+      {"State": "Sikkim", "Category": "Processing", "Discrepancy": 83.72},
+      {"State": "Bihar", "Category": "Processing", "Discrepancy": 79.94}
+    ]
+  },
+  "mark": "circle",
+  "encoding": {
+    "x": {"field": "State", "type": "nominal", "axis": {"title": "States and Territories"}},
+    "y": {"field": "Discrepancy", "type": "quantitative", "axis": {"title": "Discrepancies (%)"}},
+    "size": {"field": "Discrepancy", "type": "quantitative", "legend": {"title": "Discrepancy Size (%)"}},
+    "color": {"field": "Category", "type": "nominal", "legend": {"title": "Category"}},
+    "tooltip": [
+      {"field": "State", "type": "nominal", "title": "State"},
+      {"field": "Category", "type": "nominal", "title": "Category"},
+      {"field": "Discrepancy", "type": "quantitative", "title": "Discrepancy (%)"}
+    ]
+  },
+  "config": {
+    "axis": {
+      "labelAngle": -45,
+      "labelFontSize": 12,
+      "titleFontSize": 14
+    }
+  }
+}
