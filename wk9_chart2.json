@@ -1,0 +1,76 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "values": [
+      {"State": "Kerala", "Discrepancy": 0.770},
+      {"State": "Manipur", "Discrepancy": 0.762},
+      {"State": "Tripura", "Discrepancy": 0.68981},
+      {"State": "Mizoram", "Discrepancy": 0.3175},
+      {"State": "Assam", "Discrepancy": 0.30088},
+      {"State": "Arunachal Pradesh", "Discrepancy": 0.19976},
+      {"State": "Nagaland", "Discrepancy": 0.1825},
+      {"State": "Puducherry", "Discrepancy": 0.26474},
+      {"State": "Sikkim", "Discrepancy": 0.28071},
+      {"State": "Ladakh", "Discrepancy": 0.215},
+      {"State": "Tripura", "Discrepancy": 0.95863},
+      {"State": "Daman Diu and Dadra Nagar Haveli", "Discrepancy": 0.59333},
+      {"State": "Puducherry", "Discrepancy": 0.58824},
+      {"State": "Goa", "Discrepancy": 0.5625},
+      {"State": "Kerala", "Discrepancy": 0.62094},
+      {"State": "Tamil Nadu", "Discrepancy": 0.74651},
+      {"State": "Maharashtra", "Discrepancy": 0.3582},
+      {"State": "Madhya Pradesh", "Discrepancy": 0.49356},
+      {"State": "Telangana", "Discrepancy": 0.43478},
+      {"State": "Punjab", "Discrepancy": 0.46933},
+      {"State": "Arunachal Pradesh", "Discrepancy": 1.1971},
+      {"State": "Mizoram", "Discrepancy": 1.0112},
+      {"State": "Manipur", "Discrepancy": 1.0046},
+      {"State": "West Bengal", "Discrepancy": 0.987},
+      {"State": "Puducherry", "Discrepancy": 0.9593},
+      {"State": "Nagaland", "Discrepancy": 0.9499},
+      {"State": "Meghalaya", "Discrepancy": 0.8937},
+      {"State": "Assam", "Discrepancy": 0.8752},
+      {"State": "Sikkim", "Discrepancy": 0.8372},
+      {"State": "Bihar", "Discrepancy": 0.7994}
+    ]
+  },
+  "title": {
+    "text": "Distribution of Discrepancies (MIS vs Swachh Survekshan 2023)",
+    "anchor": "start"
+  },
+  "width": 600,
+  "height": 400,
+  "mark": {
+    "type": "bar",
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "bin": {"maxbins": 10},
+      "field": "Discrepancy",
+      "type": "quantitative",
+      "title": "Discrepancies"
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "title": "Frequency"
+    },
+    "tooltip": [
+      {"field": "Discrepancy", "type": "quantitative", "title": "Discrepancy (Bin Range)"},
+      {
+        "aggregate": "values",
+        "field": "State",
+        "type": "nominal",
+        "title": "States in Bin"
+      },
+      {"aggregate": "count", "type": "quantitative", "title": "Frequency"}
+    ]
+  },
+  "config": {
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 14
+    }
+  }
+}
