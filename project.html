@@ -97,15 +97,14 @@
             <div class="chart-description">   
                 <h2>Part IV: Anaysis of Discrepancies in State Data</h2>
                <p><b>Least Discrepant States:</b> 
-
 <li>Door-to-Door Collection: States with smaller geographical areas and efficient governance, such as Daman Diu and Chandigarh, have more accurate data reporting. Their waste management systems are easier to track, and streamlined reporting mechanisms help ensure consistency.</li>
 
 <li>Source Segregation: States like Chandigarh that have focused and well-targeted waste segregation programs often see fewer discrepancies. These programs ensure that actual practices align closely with reported data.</li>
 
 <li>Processing: Integrated waste management systems in states like Chandigarh result in no discrepancies in waste processing. These systems track waste data accurately at every stage, ensuring reliable reporting</li>
-        
- <p><b>Most Discrepant States:</b><p>
 
+                   
+ <p><b>Most Discrepant States:</b><p>
 <li>Door-to-Door Collection:Larger states such as Delhi and Andhra Pradesh face challenges in accurate reporting due to their size and geographical diversity. Discrepancies may arise from managing waste collection in both urban and rural areas with varying levels of resources.</li>
 
 <li>Source Segregation: States like Maharashtra and West Bengal often experience discrepancies due to inadequate infrastructure, particularly in rural or underdeveloped areas. Local governments may overestimate the success of their waste segregation efforts, leading to inflated reports.</li>
@@ -117,6 +116,9 @@
             </div>
             <center><figure id="chart7"></figure></center>
             <figcaption>Chart 1: States with Most Data discrepancies </figcaption>
+            <center><figure id="chart8"></figure></center>
+            <figcaption>Chart 2: States with Least Data discrepancies </figcaption>
+            
         </section>
 
         <!-- Part V: Conclusion -->
@@ -138,6 +140,7 @@
             chart5: "segregation.json",
             chart6: "processing.json",
             chart7: "Data_Discrepancies.json"
+            chart8: "Data_Least_Discrepancy.json"
         };
 
         vegaEmbed('#chart1', specs.chart1);
@@ -147,6 +150,7 @@
         vegaEmbed('#chart5', specs.chart5);
         vegaEmbed('#chart6', specs.chart6);
         vegaEmbed('#chart7', specs.chart7);
+        vegaEmbed('#chart8', specs.chart8);
     </script>
 </body>
 </html> 
