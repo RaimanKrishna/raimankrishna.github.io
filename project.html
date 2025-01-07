@@ -97,23 +97,58 @@
     }
 </style>
 
+            <!-- Part III: Data Discrepancies -->
+<section>
+    <div class="chart-description">
+        <h2>Part III: Data Discrepancies in SBM</h2>
+        <p>This section compares the claimed data for door-to-door collection, source segregation, and waste generation with the MIS data.</p>
+    </div>
+    <div class="chart-container">
+        <center><figure id="chart4"></figure></center>
+        <figcaption>Chart 3: Door-to-Door Collection (Claimed vs MIS Data)</figcaption>
+    </div>
 
-      
-    
+    <div class="chart-container">
+        <center><figure id="chart5"></figure></center>
+        <figcaption>Chart 4: Source Segregation (Claimed vs MIS Data)</figcaption>
+    </div>
 
-        <!-- Part III: Data Discrepancies -->
-        <section>
-            <div class="chart-description">
-                <h2>Part III: Data Discrepancies in SBM</h2>
-                <p>This section compares the claimed data for door-to-door collection, source segregation, and waste generation with the MIS data.</p>
-            </div>
-            <center><figure id="chart4"></figure></center>
-            <figcaption>Chart 3: Door-to-Door Collection (Claimed vs MIS Data)</figcaption>
-            <center><figure id="chart5"></figure></center>
-            <figcaption>Chart 4: Source Segregation (Claimed vs MIS Data)</figcaption>
-            <center><figure id="chart6"></figure></center>
-            <figcaption>Chart 5: Waste Generation (Claimed vs MIS Data)</figcaption>
-        </section>
+    <div class="chart-container">
+        <center><figure id="chart6"></figure></center>
+        <figcaption>Chart 5: Waste Generation (Claimed vs MIS Data)</figcaption>
+    </div>
+</section>
+
+/* General styling for the charts */
+.chart-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.chart-container figure {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Add some responsiveness for smaller screens */
+@media only screen and (max-width: 768px) {
+    .chart-container {
+        padding: 5px;
+    }
+
+    .chart-container figure {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}
+
 
         <!-- Part IV: Policy Response -->
         <section>
