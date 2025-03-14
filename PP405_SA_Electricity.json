@@ -1,0 +1,113 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Global Access to Electricity (2000-2022)",
+    "subtitle": "Percentage of population with access to electricity across different regions",
+    "subtitleFontSize": 13,
+    "subtitleColor": "#666666",
+    "anchor": "start",
+    "fontSize": 18,
+    "fontWeight": "bold"
+  },
+  "width": 700,
+  "height": 400,
+  "data": {
+    "values": [
+      {"Year": 2000, "Region": "World", "Access": 78.22},
+      {"Year": 2005, "Region": "World", "Access": 80.70},
+      {"Year": 2010, "Region": "World", "Access": 83.45},
+      {"Year": 2015, "Region": "World", "Access": 86.92},
+      {"Year": 2020, "Region": "World", "Access": 90.40},
+      {"Year": 2022, "Region": "World", "Access": 91.28},
+      
+      {"Year": 2000, "Region": "South Asia", "Access": 57.78},
+      {"Year": 2005, "Region": "South Asia", "Access": 66.66},
+      {"Year": 2010, "Region": "South Asia", "Access": 75.10},
+      {"Year": 2015, "Region": "South Asia", "Access": 86.79},
+      {"Year": 2020, "Region": "South Asia", "Access": 96.19},
+      {"Year": 2022, "Region": "South Asia", "Access": 98.28},
+      
+      {"Year": 2000, "Region": "Sub-Saharan Africa", "Access": 25.70},
+      {"Year": 2005, "Region": "Sub-Saharan Africa", "Access": 29.35},
+      {"Year": 2010, "Region": "Sub-Saharan Africa", "Access": 33.34},
+      {"Year": 2015, "Region": "Sub-Saharan Africa", "Access": 39.20},
+      {"Year": 2020, "Region": "Sub-Saharan Africa", "Access": 48.55},
+      {"Year": 2022, "Region": "Sub-Saharan Africa", "Access": 51.51},
+      
+      {"Year": 2000, "Region": "East Asia & Pacific", "Access": 92.06},
+      {"Year": 2005, "Region": "East Asia & Pacific", "Access": 93.58},
+      {"Year": 2010, "Region": "East Asia & Pacific", "Access": 95.55},
+      {"Year": 2015, "Region": "East Asia & Pacific", "Access": 97.03},
+      {"Year": 2020, "Region": "East Asia & Pacific", "Access": 97.80},
+      {"Year": 2022, "Region": "East Asia & Pacific", "Access": 98.22},
+      
+      {"Year": 2000, "Region": "Latin America & Caribbean", "Access": 91.74},
+      {"Year": 2005, "Region": "Latin America & Caribbean", "Access": 93.52},
+      {"Year": 2010, "Region": "Latin America & Caribbean", "Access": 95.88},
+      {"Year": 2015, "Region": "Latin America & Caribbean", "Access": 97.48},
+      {"Year": 2020, "Region": "Latin America & Caribbean", "Access": 98.15},
+      {"Year": 2022, "Region": "Latin America & Caribbean", "Access": 98.58},
+      
+      {"Year": 2000, "Region": "Middle East & North Africa", "Access": 92.22},
+      {"Year": 2005, "Region": "Middle East & North Africa", "Access": 93.75},
+      {"Year": 2010, "Region": "Middle East & North Africa", "Access": 95.70},
+      {"Year": 2015, "Region": "Middle East & North Africa", "Access": 96.60},
+      {"Year": 2020, "Region": "Middle East & North Africa", "Access": 97.05},
+      {"Year": 2022, "Region": "Middle East & North Africa", "Access": 97.15},
+      
+      {"Year": 2000, "Region": "Europe & Central Asia", "Access": 99.12},
+      {"Year": 2005, "Region": "Europe & Central Asia", "Access": 99.28},
+      {"Year": 2010, "Region": "Europe & Central Asia", "Access": 99.67},
+      {"Year": 2015, "Region": "Europe & Central Asia", "Access": 99.83},
+      {"Year": 2020, "Region": "Europe & Central Asia", "Access": 99.98},
+      {"Year": 2022, "Region": "Europe & Central Asia", "Access": 100.00},
+      
+      {"Year": 2000, "Region": "High income", "Access": 99.45},
+      {"Year": 2005, "Region": "High income", "Access": 99.53},
+      {"Year": 2010, "Region": "High income", "Access": 99.78},
+      {"Year": 2015, "Region": "High income", "Access": 99.88},
+      {"Year": 2020, "Region": "High income", "Access": 99.97},
+      {"Year": 2022, "Region": "High income", "Access": 99.98}
+    ]
+  },
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "temporal",
+      "title": "Year",
+      "axis": {
+        "labelAngle": 0,
+        "format": "%Y"
+      }
+    },
+    "y": {
+      "field": "Access",
+      "type": "quantitative",
+      "title": "Population with access to electricity (%)",
+      "scale": {"domain": [0, 100]}
+    },
+    "color": {
+      "field": "Region",
+      "type": "nominal",
+      "scale": {
+        "domain": ["World", "South Asia", "Sub-Saharan Africa", "East Asia & Pacific", "Latin America & Caribbean", "Middle East & North Africa", "Europe & Central Asia", "High income"],
+        "range": ["#4c78a8", "#72b7b2", "#f58518", "#54a24b", "#e45756", "#79706e", "#9d755d", "#bab0ac"]
+      },
+      "title": "Region"
+    },
+    "tooltip": [
+      {"field": "Region", "type": "nominal"},
+      {"field": "Year", "type": "temporal", "format": "%Y"},
+      {"field": "Access", "type": "quantitative", "format": ".1f", "title": "Access (%)"}
+    ]
+  },
+  "config": {
+    "axisY": {
+      "minExtent": 30
+    }
+  }
+}
