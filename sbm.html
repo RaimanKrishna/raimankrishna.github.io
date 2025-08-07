@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Geromic George - Project</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+</head>
+
+<body> 
+    <div class="header">
+        <div class="container">
+            <h1>Project<br>
+               Analysis of Interrelationships between Sanitation, Child Malnutrition & Mortality in India </h1><br>
+            <p>
+                <a href="index.html">Home</a> | <a href="https://www.linkedin.com/in/geromic-george-62955b33">LinkedIn</a> | 
+                <a href="https://github.com/GeromicG">GitHub</a> |  <a href="portfolio.html">Portfolio</a> <br><br>
+           This page acts as my project page for the PP434 | Automated Data Visualisation for Policymaking course, part of the MPP programme at LSE. 
+        The project is divided into 6 parts that analyse the impact of various indicators on child mortality in India and the policy response to it. 
+        </p>
+        </div>
+    </div>
+
+    <main class="container">
+        <section>
+            <div class="chart-description">
+                <h2>Part I: Introduction</h2>
+                <p><b>Objectives:</b> This project aims to analyse the relationship between child mortality outcomes in children (under five) across Indian states and various factors that may infleunce it such as malnutrition, women's education and improved access to sanitation (government intervention).
+                    The questions for analysis are "Which indicators of child and maternal health along with sanitation infleunce child mortality and to what extent?" and "How has India progressed on child health outcomes across time and regions"?.
+              <p><b>Data:</b> National Family Health Surveys (NFHS) from (NFHS) 1-5 (1992-2021) and the Census of India (2011). Option to use API is there in
+                <a href="https://www.data.gov.in/search?title=NFHS%20%205%20sanitation&type=resources&sortby=changed">Open Data Government Platform India</a>.
+
+                  <p><b>Challenges:</b> Data cleaning challenges included handling missing values, inconsistent formats, and large datasets.NFHS 1 and 2 data are available only in PDFs which had to be scraped out.
+                  There were more than 135 columns in NFHS 5 dataset from which relevant data was extracted. Python tools like Pandas helped tidy the data efficiently and conducted correlation and regression analysis in Google Co-Lab. Links are given below in each part.<br>
+            It was also difficult to get the exact geojson base map of India with correct sub-national and national administrative boundaries of India as new states and Union Territories have been formed. <a href="https://simplemaps.com/gis/country/in#admin1">Simple Maps</a> was used.
+            </p>
+            </div>
+            
+        </section>
+        
+        <section>
+            <div class="chart-description">
+                <h2>Part II: Relationship between Child Malnutrition & Access to Sanitation in India</h2>
+
+    <p><b>Analytical Framework:</b>  Used NFHS-5 (2019-21) state-wise data. Bubble correlation charts (population-adjusted) and correlation analysis explore the relationship between child malnutrition variables and access to sanitation. 
+    Filtering the NFHS 5 dataset & estimating correlation - <a href="https://colab.research.google.com/drive/1SE6Icraj3Idix65jb5pegqKlF9DVhgqE?usp=sharing">Google CoLab Project Data Analysis Notebook</a></p>
+            </div>
+            <center><figure id="Location1"></figure></center>
+            <figcaption>Chart 1: Correlation Coefficient = -0.466.</figcaption> <br>
+            <center><figure id="Location2"></figure></center>
+            <figcaption>Chart 2: Correlation Coefficient = -0.457.</figcaption><br>
+            <center><figure id="Location3"></figure></center>
+            <figcaption>Chart 3: Correlation Coefficient = -0.512.</figcaption> <br>
+ <div class="chart-description">
+<p><b>Interpretation:</b>A moderate negative correlation exists between child malnutrition and improved sanitation. Poor sanitation exacerbates tropical enteropathy, a condition causing chronic intestinal inflammation, disrupting nutrient absorption, impairing growth, and weakening immunity in children.</p>
+
+ </div>
+        </section>
+
+
+                <section>
+            <div class="chart-description">
+                <h2> PartIII: Linking Child Mortality with Health and Education Indicators</h2>
+                <h3> Regression Model </h3>
+                <p> Simple linear regression model is contructed:
+                <center>U5MR_i = β_0 + β_1(Women with 10+ years of schooling_i) + β_2(Improved sanitation facility_i)+ β_3(Below normal BMI Women_i) + β_4(Stunted_i) + β_5(Wasted_i) + β_6(Underweight_i) +  β_7(Children with diarrhoea taken to a health facility_i) + ϵ_i</center><br><br>
+   <b>Dependent Variable:</b> U5MR_i: Under-five mortality rate for state_i, defined as deaths per 1000 live births for children under 5.<br>
+<b>Independent Variables for state_i:</b>Women’s education, sanitation, maternal health (below normal BMI), % of stunted, wasted, underweight children; and diarrhoea care access (proxy for health access and diarrhoea is 3rd leading cause of child mortality.
+<a href="https://www.statista.com/statistics/643462/leading-causes-of-death-among-children-india/">Statista- Causes of Death of Children India</a><br>
+
+<b>Coefficients:</b>β_0, β_1, β_2, β_3, β_4, β_5, β_6 are parameters to be estimated.<br><br>
+
+<b>Assumptions:</b>Linear relationship. Errors are independently and identically distributed. <br><br>
+
+<p><b>Analytical Framework:</b> Simple OLS regression of the filtered NFHS 5 dataset and estimating the coefficients - <a href="https://colab.research.google.com/drive/1JsxaxJvW9_-m5USM0_YIZ_0engWJrA8y?usp=sharing">Google CoLab Project Regression Notebook</a> (OpenAI, 2025).
+Based on this regression, a trellis chart is created which depicts the regression of U5MR for state_i on independent variables that represent indicators of sanitation, child health, women's education and health. </p>
+                
+            </div>
+           
+           <center><figure id="Location4"></figure></center> 
+            <figcaption>Chart 4: Trellis chart with regression lines for different indicators against U5MR. Source:NFHS 5.</figcaption><br>
+                    
+<div class="chart-description">
+<p><b>Interpretation:</b><br>
+<b>R-squared (0.731):</b> 73.1% of the variability in under-five mortality is explained by the model, indicating a good fit.<br>
+<b>Significant Estimates:</b> Four variables are significant at the 10% level (due to small sample size), on average:<br>
+<b>- Women (15-49) with 10+ years of schooling (%): β_1 = -0.3311</b> Higher female education associated with reduced under-five mortality.<br>
+<b>- Improved sanitation (%): β_2 = -0.2611</b> Greater access to sanitation associated with lower under-five mortality.<br>
+<b>- Women with BMI <18.5 (%): β_3 = 1.3275</b> Poor maternal nutrition associated with increased under-five mortality.<br>
+<b>- Stunted children (%): β_4 = 1.0098</b> Higher stunting rates associated with increased under-five mortality.<br>
+<p><b>Limitations:</b> Omitted variable bias and lack of state-specific or time-invariant fixed effects.</p>
+
+</div></section>
+        
+        <section>
+            <div class="chart-description">
+                <h2>Part IV: Regional Disparities in Child Health Outcomes</h2>
+                <h3>Mapping and Ranking Regional Disparities </h3>
+                <p> Identifying regional disparities in child health outcomes in India is crucial for identifying inequities, prioritizing resources, and designing targeted interventions address it.</p>
+              
+            </div>
+           
+            <center><figure id="Location5"></figure></center>
+            <figcaption>Chart 5: Choropleth map shows state-wise U5MR disparities. Source:NFHS 5.</figcaption><br>
+
+             <center><figure id="Location6"></figure></center>
+            <figcaption>Chart 6:  Histogram ranks states on child malnutrition indicators.. Source:NFHS 5.</figcaption><br>
+            
+            <div class="chart-description">
+          <p><b>Interpretation: 'Aspirational States'</b><br>
+A <b>class of 'aspirational states'</b>—Bihar, Uttar Pradesh, Madhya Pradesh, Gujarat, Jharkhand, and union territories like Dadra and Nagar Haveli and Daman and Diu—are rapidly progressing yet remain behind key policy targets.
+The state of Meghalaya is an <b>outlier</b> in stunting while performing better in other indicators, warranting further investigation.</p>
+
+            </section>  
+            
+          <section>
+            <div class="chart-description">   
+            <h2>Part V: Assessing India's Progress </h2>
+            <h3>India's Progress & Policy Response on Sanitation </h3>
+    <p>Government interventions, such as the Total Sanitation Campaign (1999) and Swachh Bharat Mission (2014), have targeted open defecation and waste management.</p>
+                
+            <center><figure id="Location7"></figure></center>
+            <figcaption>Chart 7: Trellis plot showing India's progress in child health outcomes remained consistent in last 2 decades. Stunting% and Wasting% is not comparable across NFHS surveys due to difference in methodologies. </figcaption><br>
+
+                <center><figure id="Location8"></figure></center>
+            <figcaption>Chart 8: Histogram showing India's massive construction of househould toilets through Swacch Bharat Mission Phase I. Almost 50% of it is in 'Aspirational States'.</figcaption><br>
+
+        
+        </section>
+
+       
+     <section>
+            <div class="chart-description">   
+            <h2>Part VI: Conclusion </h2>
+ <h3>Summary and Policy Recommendations</h3>
+<p>Women’s education and health significantly reduce under-five mortality, while improved sanitation reduces disease exposure, addressing tropical enteropathy and improving child survival. Stunted children face higher risks of disease-related mortality, and regional disparities persist in sanitation and nutrition, with 'aspirational states' catching up.
+The potential impact of other variables such as economic development (per capita state GDP), efficiency of public food distribution systems and availability of pediatricians on child mortality can be examined further.
+To meet SDGs on child health and sanitation by 2030, India should <b>boost women’s education</b>, especially in aspirational states, <b>enhance sanitation quality</b> and waste management, and <b>strengthen maternal health</b> alongside community nutrition programmes to reduce stunting and improve child survival.</p>
+
+          
+        </section>
+
+    <section>
+     <div class="chart-description">   
+    <h3>Bibliography </h3> 
+     <p>Use of Open AI for generating the python code for regression analysis in Part III.</p>
+     </div>
+    </section>
+    </main>
+
+    <script>
+        let figure_1_spec = "malnutrition1.json";
+        let figure_2_spec = "malnutrition2.json" 
+        let figure_3_spec = "malnutrition3.json"                                                                                                       
+        let figure_4_spec = "regression_u5mr_trellis.json"                                                                                                                  
+        let figure_5_spec = "indiau5mr_choropleth.json"
+        let figure_6_spec = "malnutrition_state_rank.json"
+        let figure_7_spec = "childhealth_trends.json"
+        let figure_8_spec = "India_IHHL.json"
+      
+        vegaEmbed('#Location1', figure_1_spec)
+        vegaEmbed('#Location2', figure_2_spec)
+        vegaEmbed('#Location3', figure_3_spec)
+        vegaEmbed('#Location4', figure_4_spec)
+        vegaEmbed('#Location5', figure_5_spec)
+        vegaEmbed('#Location6', figure_6_spec)
+        vegaEmbed('#Location7', figure_7_spec)
+        vegaEmbed('#Location8', figure_8_spec)
+        
+    </script>
+</body>
+</html>
