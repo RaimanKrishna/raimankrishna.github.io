@@ -1,0 +1,113 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Sectoral Share of India's GDP (2010-2024)",
+    "subtitle": "Source: Economic Survey of India",
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 12,
+    "anchor": "start",
+    "color": "black",
+    "fontSize": 16,
+    "offset": 10
+  },
+  "width": 600,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/GeromicG/geromicg.github.io/refs/heads/main/PP404/Sector_share_GDP.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "fold": ["Agriculture", "Industry", "Manufacturing", "Services"],
+      "as": ["Sector", "Percentage Share"]
+    },
+    {
+      "calculate": "datum.Sector == 'Agriculture' ? 'Agriculture & Allied Activities' : datum.Sector == 'Industry' ? 'Industry minus Manufacturing' : datum.Sector",
+      "as": "Sector"
+    },
+    {
+      "calculate": "datum.Sector == 'Agriculture & Allied Activities' ? 1 : datum.Sector == 'Industry minus Manufacturing' ? 2 : datum.Sector == 'Manufacturing' ? 3 : 4",
+      "as": "SortOrder"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 6
+      },
+      "encoding": {
+        "x": {
+          "field": "Financial Year",
+          "type": "ordinal",
+          "title": "Financial Year",
+          "axis": {
+            "titleFontSize": 13,
+            "labelFontSize": 12
+          }
+        },
+        "y": {
+          "field": "Percentage Share",
+          "type": "quantitative",
+          "title": "Percentage Share in GDP",
+          "stack": "zero",
+          "axis": {
+            "titleFontSize": 13,
+            "labelFontSize": 12
+          }
+        },
+        "color": {
+          "field": "Sector",
+          "type": "nominal",
+          "title": "Sector",
+          "scale": {
+            "domain": ["Agriculture & Allied Activities", "Industry minus Manufacturing", "Manufacturing", "Services"],
+            "range": ["#2E8B57", "#FF4500", "#003366", "#800000"]
+          }
+        },
+        "order": {
+          "field": "SortOrder",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "window": [{"op": "sum", "field": "Percentage Share", "as": "TotalPercentage"}],
+          "frame": [null, null],
+          "groupby": ["Financial Year"]
+        },
+        {
+          "window": [{"op": "sum", "field": "Percentage Share", "as": "CumulativeSum"}],
+          "frame": [null, 0],
+          "groupby": ["Financial Year"]
+        },
+        {
+          "calculate": "datum.CumulativeSum - datum['Percentage Share']/2",
+          "as": "MiddlePosition"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "color": "white",
+        "fontSize": 13,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "x": {"field": "Financial Year", "type": "ordinal"},
+        "y": {"field": "MiddlePosition", "type": "quantitative"},
+        "text": {"field": "Percentage Share", "type": "quantitative", "format": ".1f"}
+      }
+    }
+  ],
+  "config": {
+    "legend": {
+      "orient": "right",
+      "title": null,
+      "labelFontSize": 12
+    }
+  }
+}

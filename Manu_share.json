@@ -1,0 +1,179 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Global Manufacturing Value Added Share (%) by Country, 2004-2023",
+    "title": {
+      "text": "Share of Global Manufacturing Value Added (%)",
+      "subtitle": ["Source: World Bank Manufacturing Value Added database, UNIDO Statistics Data Portal"],
+      "subtitleFontStyle": "italic",
+      "fontSize": 15,
+      "subtitleFontSize": 12,
+      "anchor": "start",
+      "color": "black"
+    },
+    "width": 700,
+    "height": 400,
+    "data": {
+      "values": [
+        {"year": 2004, "country": "China", "value": 8.7},
+        {"year": 2005, "country": "China", "value": 9.7},
+        {"year": 2006, "country": "China", "value": 10.7},
+        {"year": 2007, "country": "China", "value": 12.1},
+        {"year": 2008, "country": "China", "value": 13.6},
+        {"year": 2009, "country": "China", "value": 15.2},
+        {"year": 2010, "country": "China", "value": 17.4},
+        {"year": 2011, "country": "China", "value": 19.0},
+        {"year": 2012, "country": "China", "value": 20.5},
+        {"year": 2013, "country": "China", "value": 21.6},
+        {"year": 2014, "country": "China", "value": 22.8},
+        {"year": 2015, "country": "China", "value": 23.8},
+        {"year": 2016, "country": "China", "value": 24.3},
+        {"year": 2017, "country": "China", "value": 24.9},
+        {"year": 2018, "country": "China", "value": 25.6},
+        {"year": 2019, "country": "China", "value": 26.5},
+        {"year": 2020, "country": "China", "value": 28.4},
+        {"year": 2021, "country": "China", "value": 29.2},
+        {"year": 2022, "country": "China", "value": 29.8},
+        {"year": 2023, "country": "China", "value": 30.4},
+        
+        {"year": 2004, "country": "US", "value": 20.4},
+        {"year": 2005, "country": "US", "value": 19.6},
+        {"year": 2006, "country": "US", "value": 18.8},
+        {"year": 2007, "country": "US", "value": 17.9},
+        {"year": 2008, "country": "US", "value": 17.1},
+        {"year": 2009, "country": "US", "value": 16.5},
+        {"year": 2010, "country": "US", "value": 16.2},
+        {"year": 2011, "country": "US", "value": 15.5},
+        {"year": 2012, "country": "US", "value": 15.3},
+        {"year": 2013, "country": "US", "value": 15.0},
+        {"year": 2014, "country": "US", "value": 14.9},
+        {"year": 2015, "country": "US", "value": 14.7},
+        {"year": 2016, "country": "US", "value": 14.6},
+        {"year": 2017, "country": "US", "value": 14.3},
+        {"year": 2018, "country": "US", "value": 14.2},
+        {"year": 2019, "country": "US", "value": 14.0},
+        {"year": 2020, "country": "US", "value": 13.8},
+        {"year": 2021, "country": "US", "value": 13.6},
+        {"year": 2022, "country": "US", "value": 13.5},
+        {"year": 2023, "country": "US", "value": 13.3},
+        
+        {"year": 2004, "country": "India", "value": 1.6},
+        {"year": 2005, "country": "India", "value": 1.7},
+        {"year": 2006, "country": "India", "value": 1.8},
+        {"year": 2007, "country": "India", "value": 1.9},
+        {"year": 2008, "country": "India", "value": 1.9},
+        {"year": 2009, "country": "India", "value": 2.0},
+        {"year": 2010, "country": "India", "value": 2.1},
+        {"year": 2011, "country": "India", "value": 2.2},
+        {"year": 2012, "country": "India", "value": 2.2},
+        {"year": 2013, "country": "India", "value": 2.1},
+        {"year": 2014, "country": "India", "value": 2.2},
+        {"year": 2015, "country": "India", "value": 2.4},
+        {"year": 2016, "country": "India", "value": 2.6},
+        {"year": 2017, "country": "India", "value": 2.8},
+        {"year": 2018, "country": "India", "value": 3.0},
+        {"year": 2019, "country": "India", "value": 3.1},
+        {"year": 2020, "country": "India", "value": 3.0},
+        {"year": 2021, "country": "India", "value": 3.2},
+        {"year": 2022, "country": "India", "value": 3.5},
+        {"year": 2023, "country": "India", "value": 3.8},
+        
+        {"year": 2004, "country": "Brazil", "value": 1.9},
+        {"year": 2005, "country": "Brazil", "value": 2.0},
+        {"year": 2006, "country": "Brazil", "value": 2.0},
+        {"year": 2007, "country": "Brazil", "value": 2.1},
+        {"year": 2008, "country": "Brazil", "value": 2.1},
+        {"year": 2009, "country": "Brazil", "value": 2.0},
+        {"year": 2010, "country": "Brazil", "value": 2.2},
+        {"year": 2011, "country": "Brazil", "value": 2.1},
+        {"year": 2012, "country": "Brazil", "value": 2.0},
+        {"year": 2013, "country": "Brazil", "value": 2.0},
+        {"year": 2014, "country": "Brazil", "value": 1.9},
+        {"year": 2015, "country": "Brazil", "value": 1.8},
+        {"year": 2016, "country": "Brazil", "value": 1.7},
+        {"year": 2017, "country": "Brazil", "value": 1.7},
+        {"year": 2018, "country": "Brazil", "value": 1.6},
+        {"year": 2019, "country": "Brazil", "value": 1.5},
+        {"year": 2020, "country": "Brazil", "value": 1.4},
+        {"year": 2021, "country": "Brazil", "value": 1.4},
+        {"year": 2022, "country": "Brazil", "value": 1.3},
+        {"year": 2023, "country": "Brazil", "value": 1.3},
+        
+        {"year": 2004, "country": "Vietnam", "value": 0.3},
+        {"year": 2005, "country": "Vietnam", "value": 0.3},
+        {"year": 2006, "country": "Vietnam", "value": 0.3},
+        {"year": 2007, "country": "Vietnam", "value": 0.4},
+        {"year": 2008, "country": "Vietnam", "value": 0.4},
+        {"year": 2009, "country": "Vietnam", "value": 0.4},
+        {"year": 2010, "country": "Vietnam", "value": 0.4},
+        {"year": 2011, "country": "Vietnam", "value": 0.5},
+        {"year": 2012, "country": "Vietnam", "value": 0.5},
+        {"year": 2013, "country": "Vietnam", "value": 0.6},
+        {"year": 2014, "country": "Vietnam", "value": 0.6},
+        {"year": 2015, "country": "Vietnam", "value": 0.7},
+        {"year": 2016, "country": "Vietnam", "value": 0.7},
+        {"year": 2017, "country": "Vietnam", "value": 0.8},
+        {"year": 2018, "country": "Vietnam", "value": 0.8},
+        {"year": 2019, "country": "Vietnam", "value": 0.9},
+        {"year": 2020, "country": "Vietnam", "value": 1.0},
+        {"year": 2021, "country": "Vietnam", "value": 1.1},
+        {"year": 2022, "country": "Vietnam", "value": 1.2},
+        {"year": 2023, "country": "Vietnam", "value": 1.3}
+      ]
+    },
+    "encoding": {
+      "x": {
+        "field": "year",
+        "type": "ordinal",
+        "title": "Year",
+        "axis": {
+          "labelAngle": 0,
+          "titleFontSize": 13,
+          "labelFontSize": 12
+        }
+      },
+      "y": {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Share of Global Manufacturing Value Added (%)",
+        "axis": {
+          "grid": true,
+          "titleFontSize": 13,
+          "labelFontSize": 12
+        }
+      },
+      "color": {
+        "field": "country",
+        "type": "nominal",
+        "scale": {
+          "domain": ["China", "US", "India", "Brazil", "Vietnam"],
+          "range": ["#FF0000", "#87CEFA", "#0047AB", "#006400", "#8B4513"]
+        },
+        "legend": {"title": "Country"}
+      }
+    },
+    "layer": [
+      {
+        "mark": {
+          "type": "line",
+          "point": false,
+          "strokeWidth": 2,
+          "tooltip": true
+        }
+      },
+      {
+        "mark": {
+          "type": "point",
+          "filled": true,
+          "size": 80,
+             "strokeWidth": 1.5,
+             "stroke": "white"
+        }
+      }
+    ],
+    "config": {
+      "point": {
+        "filled": true,
+        "opacity": 1
+      }
+    }
+  }

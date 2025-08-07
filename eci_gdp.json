@@ -1,0 +1,159 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 500,
+  "title": {
+    "text": "Economic Complexity and Income",
+    "subtitle": "ECI and GDP pc PPP, constant 2021 US$",
+    "fontSize": 20,
+    "font": "Arial",
+    "anchor": "middle"
+  },
+  "data": {
+    "values": [
+      {"countryname": "Bangladesh", "eci": -0.6799, "log_gdp_pc": 8.7952, "ny_gdp_pcap_pp_kd": 6612.98, "continent": "Asia", "display_name": "Bangladesh"},
+      {"countryname": "Brazil", "eci": -0.0358, "log_gdp_pc": 9.6812, "ny_gdp_pcap_pp_kd": 16000.35, "continent": "Latin America", "display_name": "Brazil"},
+      {"countryname": "China", "eci": 1.3099, "log_gdp_pc": 9.9559, "ny_gdp_pcap_pp_kd": 21085.08, "continent": "Asia", "display_name": "China"},
+      {"countryname": "Congo, Dem Rep", "eci": -1.8211, "log_gdp_pc": 7.1294, "ny_gdp_pcap_pp_kd": 1248.91, "continent": "Africa", "display_name": "DR Congo"},
+      {"countryname": "Egypt, Arab Rep", "eci": -0.3165, "log_gdp_pc": 9.0729, "ny_gdp_pcap_pp_kd": 8724.73, "continent": "Africa", "display_name": "Egypt"},
+      {"countryname": "Ethiopia", "eci": -0.9114, "log_gdp_pc": 7.8262, "ny_gdp_pcap_pp_kd": 2505.92, "continent": "Africa", "display_name": "Ethiopia"},
+      {"countryname": "Germany", "eci": 1.9233, "log_gdp_pc": 10.8321, "ny_gdp_pcap_pp_kd": 50572.22, "continent": "Europe", "display_name": "Germany"},
+      {"countryname": "India", "eci": 0.4406, "log_gdp_pc": 8.8731, "ny_gdp_pcap_pp_kd": 7175.63, "continent": "Asia", "display_name": "India"},
+      {"countryname": "Indonesia", "eci": -0.1877, "log_gdp_pc": 9.5116, "ny_gdp_pcap_pp_kd": 13525.54, "continent": "Asia", "display_name": "Indonesia"},
+      {"countryname": "Iran, Islamic Rep", "eci": -0.2294, "log_gdp_pc": 9.7266, "ny_gdp_pcap_pp_kd": 16773.84, "continent": "Asia", "display_name": "Iran"},
+      {"countryname": "Japan", "eci": 2.2817, "log_gdp_pc": 10.7086, "ny_gdp_pcap_pp_kd": 44833.57, "continent": "Asia", "display_name": "Japan"},
+      {"countryname": "Mexico", "eci": 1.1299, "log_gdp_pc": 9.8642, "ny_gdp_pcap_pp_kd": 19215.83, "continent": "Latin America", "display_name": "Mexico"},
+      {"countryname": "Nigeria", "eci": -1.7303, "log_gdp_pc": 8.7952, "ny_gdp_pcap_pp_kd": 6612.99, "continent": "Africa", "display_name": "Nigeria"},
+      {"countryname": "Pakistan", "eci": -0.5841, "log_gdp_pc": 8.7268, "ny_gdp_pcap_pp_kd": 6157.93, "continent": "Asia", "display_name": "Pakistan"},
+      {"countryname": "Philippines", "eci": 0.7925, "log_gdp_pc": 9.1334, "ny_gdp_pcap_pp_kd": 9264.65, "continent": "Asia", "display_name": "Philippines"},
+      {"countryname": "Russian Federation", "eci": -0.3343, "log_gdp_pc": 10.2931, "ny_gdp_pcap_pp_kd": 29515.04, "continent": "Europe", "display_name": "Russia"},
+      {"countryname": "Tanzania", "eci": -0.9989, "log_gdp_pc": 8.0064, "ny_gdp_pcap_pp_kd": 3000.97, "continent": "Africa", "display_name": "Tanzania"},
+      {"countryname": "Thailand", "eci": 1.0815, "log_gdp_pc": 9.9241, "ny_gdp_pcap_pp_kd": 20433.38, "continent": "Asia", "display_name": "Thailand"},
+      {"countryname": "Turkey", "eci": 0.6226, "log_gdp_pc": 10.2931, "ny_gdp_pcap_pp_kd": 29515.04, "continent": "Europe", "display_name": "Turkey"},
+      {"countryname": "United States", "eci": 1.4803, "log_gdp_pc": 11.1960, "ny_gdp_pcap_pp_kd": 72857.55, "continent": "North America", "display_name": "US"},
+      {"countryname": "Vietnam", "eci": 0.2079, "log_gdp_pc": 9.5434, "ny_gdp_pcap_pp_kd": 13936.52, "continent": "Asia", "display_name": "Vietnam"}
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "circle",
+        "filled": true,
+        "opacity": 0.8
+      },
+      "encoding": {
+        "x": {
+          "field": "log_gdp_pc",
+          "type": "quantitative",
+          "title": "Log of GDP per capita, PPP",
+          "scale": {"domain": [6.5, 11.5]}
+        },
+        "y": {
+          "field": "eci",
+          "type": "quantitative",
+          "title": "Economic Complexity Index (ECI)",
+          "scale": {"domain": [-2.2, 2.5]}
+        },
+        "size": {
+          "field": "ny_gdp_pcap_pp_kd",
+          "type": "quantitative",
+          "title": "GDP per capita (PPP, constant 2021 US$)",
+          "scale": {"range": [100, 2000]}
+        },
+        "color": {
+          "field": "continent",
+          "type": "nominal",
+          "title": "Continent",
+          "scale": {
+            "domain": ["Africa", "Asia", "Europe", "North America", "Latin America"],
+            "range": ["#1b9e77", "#d95f02", "#7570b3", "#e7298a", "#66a61e"]
+          }
+        },
+        "tooltip": [
+          {"field": "display_name", "type": "nominal", "title": "Country"},
+          {"field": "eci", "type": "quantitative", "format": ".2f", "title": "ECI"},
+          {"field": "ny_gdp_pcap_pp_kd", "type": "quantitative", "format": ",.0f", "title": "GDP per capita"},
+          {"field": "continent", "type": "nominal", "title": "Continent"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 8,
+        "fontSize": 10,
+        "font": "Arial"
+      },
+      "encoding": {
+        "x": {"field": "log_gdp_pc", "type": "quantitative"},
+        "y": {"field": "eci", "type": "quantitative"},
+        "text": {"field": "display_name", "type": "nominal"},
+        "color": {"value": "black"}
+      }
+    },
+    {
+      "mark": {"type": "line", "color": "blue", "strokeDash": [6, 4]},
+      "transform": [
+        {
+          "regression": "eci",
+          "on": "log_gdp_pc"
+        }
+      ],
+      "encoding": {
+        "x": {"field": "log_gdp_pc", "type": "quantitative"},
+        "y": {"field": "eci", "type": "quantitative"}
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "right", "fontSize": 14, "font": "Arial", "fontWeight": "bold"},
+      "transform": [
+        {
+          "calculate": "'2021'",
+          "as": "year"
+        }
+      ],
+      "encoding": {
+        "x": {"value": 650},
+        "y": {"value": 50},
+        "text": {"field": "year"}
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "right", "fontSize": 12, "font": "Arial"},
+      "transform": [
+        {
+          "regression": "eci",
+          "on": "log_gdp_pc",
+          "params": true
+        },
+        {"calculate": "'R² = ' + format(datum.rSquared, '.2f')", "as": "r2"}
+      ],
+      "encoding": {
+        "x": {"value": 650},
+        "y": {"value": 70},
+        "text": {"field": "r2"}
+      }
+    }
+  ],
+  "config": {
+    "background": "#f9f9f9",
+    "view": {
+      "stroke": "transparent",
+      "grid": true
+    },
+    "axis": {
+      "grid": true,
+      "gridColor": "#ddd",
+      "gridOpacity": 0.8,
+      "domain": true,
+      "labelFont": "Arial",
+      "titleFont": "Arial"
+    },
+    "legend": {
+      "titleFont": "Arial",
+      "labelFont": "Arial"
+    }
+  }
+}

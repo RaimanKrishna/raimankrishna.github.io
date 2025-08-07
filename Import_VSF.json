@@ -1,0 +1,94 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "India’s Import of VSF: Tariff Barriers and Non-Tariff Barriers",
+  "width": 650,
+  "height": 400,
+  "padding": 10,
+  "title": {
+    "text": "India’s Import of Viscose Staple Fibre: Tariff Barriers and Non-Tariff Barriers",
+    "subtitle": "Source: Ministry of Commerce and Industry, Government of India",
+    "anchor": "start",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "subtitleFontStyle": "italic"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/GeromicG/geromicg.github.io/refs/heads/main/PP404/VFS_Import.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3,
+        "point": {
+          "filled": true,
+          "size": 50,
+          "strokeWidth": 1.5,
+           "stroke": "white"
+        },
+        "stroke": "#003399"
+      },
+      "encoding": {
+        "x": {
+          "field": "Financial Year",
+          "type": "ordinal",
+          "title": "Financial Year",
+          "axis": {
+            "labelFontSize": 12,
+            "titleFontSize": 12          }
+        },
+        "y": {
+          "field": "VSF Import",
+          "type": "quantitative",
+          "title": "Viscose Staple Fibre (in USD million)",
+          "axis": {
+            "grid": true,
+            "labelFontSize": 12,
+            "titleFontSize": 12
+          }
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"year": "2020"},
+          {"year": "2021"},
+          {"year": "2022"}
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "red",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"year": "2020", "label": "Antidumping Duties Removed", "y": 120},
+          {"year": "2021", "label": "Import Tariff Reduced", "y": 160},
+          {"year": "2022", "label": "Quality Control Order Implemented", "y": 270}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "color": "black",
+        "fontSize": 12,
+        "fontWeight": "normal"
+      },
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "y", "type": "quantitative"},
+        "text": {"field": "label"}
+      }
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Post 'Liberation Day - 2nd April, 2025' US Tariff Rates vs Goods Trade Deficit as a Proportion of US Imports",
+    "subtitle": ["Source:U.S. Bureau of Economic Analysis, Circle size proportional to total value of US imports"],
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "anchor": "start",
+    "color": "black"
+  },
+  "width": 600,
+  "height": 450,
+  "data": {
+    "values": [
+      {"Country": "China", "Trade Surplus (Deficit) in Goods": -295401.6, "US Exports in Goods": 143545.7, "US Imports in Goods": 438947.4, "Imports-Exports/Imports %": 67, "New US Tariff Rate": 34},
+      {"Country": "European Union", "Trade Surplus (Deficit) in Goods": -235571.2, "US Exports in Goods": 370189.2, "US Imports in Goods": 605760.4, "Imports-Exports/Imports %": 39, "New US Tariff Rate": 20},
+      {"Country": "Japan", "Trade Surplus (Deficit) in Goods": -68467.7, "US Exports in Goods": 79740.8, "US Imports in Goods": 148208.6, "Imports-Exports/Imports %": 46, "New US Tariff Rate": 24},
+      {"Country": "Vietnam", "Trade Surplus (Deficit) in Goods": -123463, "US Exports in Goods": 13098.2, "US Imports in Goods": 136561.2, "Imports-Exports/Imports %": 90, "New US Tariff Rate": 46},
+      {"Country": "Bangladesh", "Trade Surplus (Deficit) in Goods": -6200, "US Exports in Goods": 2200, "US Imports in Goods": 8400, "Imports-Exports/Imports %": 73.8, "New US Tariff Rate": 37},
+      {"Country": "Taiwan", "Trade Surplus (Deficit) in Goods": -73927.2, "US Exports in Goods": 42336.9, "US Imports in Goods": 116264, "Imports-Exports/Imports %": 64, "New US Tariff Rate": 32},
+      {"Country": "India", "Trade Surplus (Deficit) in Goods": -45663.8, "US Exports in Goods": 41752.7, "US Imports in Goods": 87416.4, "Imports-Exports/Imports %": 52, "New US Tariff Rate": 26},
+      {"Country": "Nigeria", "Trade Surplus (Deficit) in Goods": 11856.9, "US Exports in Goods": 4200, "US Imports in Goods": 5700.7, "Imports-Exports/Imports %": 26.76, "New US Tariff Rate": 14},
+      {"Country": "Singapore", "Trade Surplus (Deficit) in Goods": 2828.9, "US Exports in Goods": 46032.6, "US Imports in Goods": 43203.7, "Imports-Exports/Imports %": -6.55, "New US Tariff Rate": 10},
+      {"Country": "Brazil", "Trade Surplus (Deficit) in Goods": 7350.7, "US Exports in Goods": 49667, "US Imports in Goods": 42316.3, "Imports-Exports/Imports %": -17.37, "New US Tariff Rate": 10},
+       {"Country": "Turkey", "Trade Surplus (Deficit) in Goods": 7350.7, "US Exports in Goods": 15300, "US Imports in Goods": 16750, "Imports-Exports/Imports %": 8.67, "New US Tariff Rate": 10}
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "circle",
+        "opacity": 0.7
+      },
+      "encoding": {
+        "x": {
+          "field": "Imports-Exports/Imports %",
+          "type": "quantitative",
+          "title": "Trade Deficit as % of US Imports from Country",
+          "scale": {"domain": [-20, 100]},
+          "axis": {"grid": false}
+        },
+        "y": {
+          "field": "New US Tariff Rate",
+          "type": "quantitative",
+          "title": "Announced US Tariff Rate (%)",
+          "scale": {"domain": [0, 50]},
+          "axis": {"grid": true}
+        },
+        "size": {
+          "field": "US Imports in Goods",
+          "type": "quantitative",
+          "title": "Total Imports (millions $)",
+          "scale": {"range": [100, 2000]},
+          "legend": null
+        },
+        "color": {
+          "condition": [
+            {"test": "datum.Country === 'India'", "value": "#002FA7"},
+            {"test": "datum.Country === 'Brazil'", "value": "green"},
+            {"test": "datum.Country === 'Vietnam'", "value": "maroon"},
+            {"test": "datum.Country === 'China'", "value": "red"},
+            {"test": "datum['Imports-Exports/Imports %'] < 0", "value": "gray"}
+          ],
+          "value": "gray",
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Imports-Exports/Imports %", "type": "quantitative", "title": "Trade Deficit (%)", "format": ".2f"},
+          {"field": "New US Tariff Rate", "type": "quantitative", "title": "Tariff Rate (%)", "format": ".1f"},
+          {"field": "US Imports in Goods", "type": "quantitative", "title": "Imports (millions $)", "format": ",.1f"},
+          {"field": "US Exports in Goods", "type": "quantitative", "title": "Exports (millions $)", "format": ",.1f"},
+          {"field": "Trade Surplus (Deficit) in Goods", "type": "quantitative", "title": "Trade Balance (millions $)", "format": ",.1f"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": "400",
+        "dy": -25
+      },
+      "encoding": {
+        "x": {
+          "field": "Imports-Exports/Imports %",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "New US Tariff Rate",
+          "type": "quantitative"
+        },
+        "text": {"field": "Country", "type": "nominal"}
+      }
+    }
+  ],
+  "config": {
+    "background": "white",
+    "view": {"stroke": "transparent"}
+  }
+}

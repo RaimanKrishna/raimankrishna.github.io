@@ -1,0 +1,106 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Exchange Rate Index for India and Brazil (2020-2025)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/GeromicG/geromicg.github.io/refs/heads/main/PP404/DEXINUS.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "observation_date": "date:%d-%m-%Y"
+      }
+    }
+  },
+  "transform": [
+    {"filter": "datum.observation_date != null"},
+    {"filter": "datum.DEXINUS != '' && datum.DEXBZUS != ''"},
+    {"calculate": "datum.DEXINUS / 76.29 * 100", "as": "IndiaExchangeRate_Index"},
+    {"calculate": "datum.DEXBZUS / 5.1286 * 100", "as": "BrazilExchangeRate_Index"},
+    {"fold": ["IndiaExchangeRate_Index", "BrazilExchangeRate_Index"], "as": ["series", "value"]}
+  ],
+  "title": {
+    "text": "Exchange Rate Index: India and Brazil (2020-2025)",
+    "subtitle": ["Base Year: 2020, Source: Federal Reserve Economic Data (FRED)", ""],
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "anchor": "start",
+    "color": "black"
+  },
+  "height": 300,
+  "width": 400,
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {"start": "2023-08-04", "end": "2025-01-26"}
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "color": "lightgrey",
+        "opacity": 0.4
+      },
+      "encoding": {
+        "x": {
+          "field": "start",
+          "type": "temporal",
+          "title": null
+        },
+        "x2": {
+          "field": "end"
+        },
+        "y": {
+          "value": 0
+        },
+        "y2": {
+          "value": 300
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "observation_date",
+          "type": "temporal",
+           "axis": {
+            "grid": false,
+            "formatType": "time",
+            "format": "%d-%m-%Y"
+          }
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative",
+          "title": "Exchange Rate Index (Base: 2020 = 100)"
+        },
+        "color": {
+          "field": "series",
+          "type": "nominal",
+          "title": "Series",
+          "scale": {
+            "domain": ["IndiaExchangeRate_Index", "BrazilExchangeRate_Index"],
+            "range": ["#002fa7", "green"]
+          },
+          "legend": {
+            "orient": "right",
+            "labelExpr": "datum.label === 'IndiaExchangeRate_Index' ? 'India' : 'Brazil'"
+          }
+        },
+        "tooltip": [
+          {"field": "series", "type": "nominal", "title": "Country"},
+          {"field": "value", "type": "quantitative", "title": "Exchange Rate Index"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "legend": {
+      "labelFontSize": 10,
+      "symbolSize": 100,
+      "offset": 20
+    }
+  }
+}

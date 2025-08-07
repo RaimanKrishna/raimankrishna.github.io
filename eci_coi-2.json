@@ -1,0 +1,150 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "description": "ECI vs COI Comparison for India and Peers",
+
+  "width": 600,
+
+  "height": 400,
+
+  "padding": {"top": 35, "left": 5, "right": 5, "bottom": 5},
+
+  "title": {
+
+    "text": "ECI vs COI: India and Peers (2023)",
+
+    "subtitle": "*Source: Harvard Growth Lab*",
+
+    "subtitleFontStyle": "italic",
+
+    "align": "left",
+
+    "anchor": "start",
+
+    "fontWeight": "bold",
+
+    "fontSize": 22,
+
+    "subtitleFontSize": 14,
+
+    "color": "black"
+
+  },
+
+  "data": {
+
+    "values": [
+
+      {"Country": "India", "ECI": 0.3729809, "COI": 2.6100867, "ECI_Rank": 48, "COI_Rank": 3},
+
+      {"Country": "China", "ECI": 1.4429148, "COI": -0.6941872, "ECI_Rank": 16, "COI_Rank": 103},
+
+      {"Country": "Vietnam", "ECI": 0.17818385, "COI": 0.6024591, "ECI_Rank": 54, "COI_Rank": 36},
+
+      {"Country": "Brazil", "ECI": -0.5235801, "COI": 0.1425346, "ECI_Rank": 94, "COI_Rank": 60},
+
+      {"Country": "USA", "ECI": 1.5154903, "COI": -0.118375495, "ECI_Rank": 14, "COI_Rank": 74}
+
+    ]
+
+  },
+
+  "encoding": {
+
+    "x": {
+
+      "field": "ECI",
+
+      "type": "quantitative",
+
+      "title": "Economic Complexity Index (ECI)"
+
+    },
+
+    "y": {
+
+      "field": "COI",
+
+      "type": "quantitative",
+
+      "title": "Complexity Outlook Index (COI)"
+
+    }
+
+  },
+
+  "layer": [
+
+    {
+
+      "mark": {
+
+        "type": "point",
+
+        "size": 100,
+
+        "filled": true
+
+      },
+
+      "encoding": {
+
+        "color": {
+
+          "field": "Country",
+
+          "type": "nominal",
+
+          "scale": {
+
+            "domain": ["India", "China", "Vietnam", "Brazil", "USA"],
+
+            "range": ["red", "green", "purple", "yellow", "blue"]
+
+          }
+
+        },
+
+        "tooltip": [
+
+          {"field": "Country", "type": "nominal"},
+
+          {"field": "ECI", "type": "quantitative", "title": "ECI Value"},
+
+          {"field": "ECI_Rank", "type": "ordinal", "title": "ECI Rank"},
+
+          {"field": "COI", "type": "quantitative", "title": "COI Value"},
+
+          {"field": "COI_Rank", "type": "ordinal", "title": "COI Rank"}
+
+        ]
+
+      }
+
+    },
+
+    {
+
+      "mark": {
+
+        "type": "text",
+
+        "align": "left",
+
+        "baseline": "middle",
+
+        "dx": 7
+
+      },
+
+      "encoding": {
+
+        "text": {"field": "Country", "type": "nominal"}
+
+      }
+
+    }
+
+  ]
+
+}

@@ -1,0 +1,139 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Export Sector Heatmap Comparison Across Countries",
+  "title": {
+    "text": "India's Export Comparison with Peers (2022-23)",
+    "subtitle": "*Source: Harvard Growth Lab*",
+    "anchor": "start",
+    "subtitleFontStyle": "italic"
+  },
+  "width": 500,
+  "height": 300,
+  "data": {
+    "values": [
+      {"Country": "India", "Sector": "Services", "Share": 45.4},
+      {"Country": "India", "Sector": "Minerals", "Share": 10.8},
+      {"Country": "India", "Sector": "Chemicals", "Share": 8.8},
+      {"Country": "India", "Sector": "Agriculture", "Share": 7.4},
+      {"Country": "India", "Sector": "Textiles", "Share": 5.1},
+      {"Country": "India", "Sector": "Electronics", "Share": 4.1},
+      {"Country": "India", "Sector": "Machinery", "Share": 4.6},
+      
+      {"Country": "China", "Sector": "Services", "Share": 9.2},
+      {"Country": "China", "Sector": "Minerals", "Share": 1.8},
+      {"Country": "China", "Sector": "Chemicals", "Share": 9.8},
+      {"Country": "China", "Sector": "Agriculture", "Share": 4.8},
+      {"Country": "China", "Sector": "Textiles", "Share": 12.7},
+      {"Country": "China", "Sector": "Electronics", "Share": 23.5},
+      {"Country": "China", "Sector": "Machinery", "Share": 18.3},
+      
+      {"Country": "USA", "Sector": "Services", "Share": 33.8},
+      {"Country": "USA", "Sector": "Minerals", "Share": 10.8},
+      {"Country": "USA", "Sector": "Chemicals", "Share": 11.3},
+      {"Country": "USA", "Sector": "Agriculture", "Share": 7.0},
+      {"Country": "USA", "Sector": "Textiles", "Share": 1.3},
+      {"Country": "USA", "Sector": "Electronics", "Share": 9.9},
+      {"Country": "USA", "Sector": "Machinery", "Share": 12.7},
+      
+      {"Country": "Vietnam", "Sector": "Services", "Share": 7.9},
+      {"Country": "Vietnam", "Sector": "Minerals", "Share": 2.1},
+      {"Country": "Vietnam", "Sector": "Chemicals", "Share": 5.1},
+      {"Country": "Vietnam", "Sector": "Agriculture", "Share": 8.9},
+      {"Country": "Vietnam", "Sector": "Textiles", "Share": 18.7},
+      {"Country": "Vietnam", "Sector": "Electronics", "Share": 35.6},
+      {"Country": "Vietnam", "Sector": "Machinery", "Share": 12.5},
+      
+      {"Country": "Brazil", "Sector": "Services", "Share": 14.7},
+      {"Country": "Brazil", "Sector": "Minerals", "Share": 20.5},
+      {"Country": "Brazil", "Sector": "Chemicals", "Share": 7.7},
+      {"Country": "Brazil", "Sector": "Agriculture", "Share": 29.4},
+      {"Country": "Brazil", "Sector": "Textiles", "Share": 2.1},
+      {"Country": "Brazil", "Sector": "Electronics", "Share": 1.4},
+      {"Country": "Brazil", "Sector": "Machinery", "Share": 6.2}
+    ]
+  },
+  "layer": [
+    {
+      "mark": "rect",
+      "encoding": {
+        "y": {
+          "field": "Country",
+          "type": "nominal",
+          "title": null,
+          "sort": ["India", "China", "USA", "Vietnam", "Brazil"]
+        },
+        "x": {
+          "field": "Sector",
+          "type": "nominal",
+          "title": null,
+          "sort": ["Services", "Electronics", "Machinery", "Textiles", "Chemicals", "Agriculture", "Minerals"]
+        },
+        "color": {
+          "field": "Share",
+          "type": "quantitative",
+          "title": "Export Share (%)",
+          "scale": {
+            "domain": [0, 5, 15, 30, 45],
+            "range": ["#FFEDA0", "#FEB24C", "#FC4E2A", "#E31A1C", "#BD0026"]
+          }
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Sector", "type": "nominal"},
+          {"field": "Share", "type": "quantitative", "format": ".1f", "title": "Export Share (%)"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "baseline": "middle",
+        "align": "center"
+      },
+      "encoding": {
+        "y": {
+          "field": "Country",
+          "type": "nominal",
+          "sort": ["India", "China", "USA", "Vietnam", "Brazil"]
+        },
+        "x": {
+          "field": "Sector",
+          "type": "nominal",
+          "sort": ["Services", "Electronics", "Machinery", "Textiles", "Chemicals", "Agriculture", "Minerals"]
+        },
+        "text": {"field": "Share", "type": "quantitative", "format": ".1f"},
+        "color": {
+          "condition": {
+            "test": "datum.Share > 20",
+            "value": "white"
+          },
+          "value": "black"
+        },
+        "font": {"value": "Arial"},
+        "fontSize": {"value": 12},
+        "fontWeight": {"value": "bold"}
+      }
+    }
+  ],
+  "config": {
+    "axis": {
+      "grid": false,
+      "labelFontSize": 12
+    },
+    "header": {
+      "labelFontSize": 14,
+      "titleFontSize": 16
+    },
+    "view": {
+      "stroke": "transparent"
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 14
+    },
+    "title": {
+      "fontSize": 16,
+      "subtitleFontSize": 14
+    }
+  }
+}

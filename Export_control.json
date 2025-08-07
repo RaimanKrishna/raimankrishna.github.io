@@ -1,0 +1,118 @@
+{
+   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+   "description": "Milled Rice Exports Chart",
+   "title": {
+     "text": "Comaprison of India's Milled Rice Exports with Top Exporters",
+     "subtitle": "Source: US Department of Agriculture 2022–2023",
+     "subtitleFontStyle": "italic",
+     "subtitleFontSize": 12,
+     "anchor": "start",
+     "color": "black",
+     "fontSize": 16
+   },
+   "width": 600,
+   "height": 400,
+   "layer": [
+     {
+       "data": {
+         "values": [{"start": "2022", "end": "2023"}]
+       },
+       "mark": {
+         "type": "rect",
+         "opacity": 0.3,
+         "color": "grey"
+       },
+       "encoding": {
+         "x": {
+           "field": "start",
+           "type": "temporal",
+           "timeUnit": "year"
+         },
+         "x2": {
+           "field": "end",
+           "type": "temporal",
+           "timeUnit": "year"
+         }
+       }
+     },
+     {
+       "data": {
+         "values": [{"year": "2022.5", "label": "India Imposed Export Control Order"}]
+       },
+       "mark": {
+         "type": "text",
+         "angle": 0,
+         "fontSize": 11,
+         "fontWeight": "bold",
+         "align": "center",
+         "baseline": "bottom",
+         "dy": -10
+       },
+       "encoding": {
+         "x": {
+           "field": "year",
+           "type": "temporal",
+           "timeUnit": "yearmonth",
+           "scale": {"domain": ["2015", "2024"]}
+         },
+         "text": {"field": "label"},
+         "color": {"value": "black"},
+         "opacity": {"value": 0.8}
+       }
+     },
+     {
+       "data": {
+         "url": "https://raw.githubusercontent.com/GeromicG/geromicg.github.io/refs/heads/main/PP404/Rice%20Exports.csv"
+       },
+       "transform": [
+         {"calculate": "timeParse(datum.Year, '%Y')", "as": "YearDate"}
+       ],
+       "mark": {
+         "type": "line",
+         "point": {
+           "filled": true,
+           "size": 80,
+           "strokeWidth": 1.5,
+           "stroke": "white"
+         },
+         "strokeWidth": 3
+       },
+       "encoding": {
+         "x": {
+           "field": "YearDate",
+           "type": "temporal",
+           "timeUnit": "year",
+           "title": "Year",
+           "axis": {
+             "grid": false,
+             "format": "%Y"
+           }
+         },
+         "y": {
+           "field": "Rice Exports",
+           "type": "quantitative",
+           "title": "Milled Rice Exports (1000 MT)"
+         },
+         "color": {
+           "field": "Country",
+           "type": "nominal",
+           "title": "Country",
+           "scale": {
+             "domain": ["China", "India", "Pakistan", "Thailand", "United States", "Viet Nam"],
+             "range": ["#E53935", "#0063B2", "orange", "purple", "pink", "brown"]
+           }
+         },
+         "tooltip": [
+           {"field": "YearDate", "type": "temporal", "timeUnit": "year", "title": "Year", "format": "%Y"},
+           {"field": "Country", "type": "nominal", "title": "Country"},
+           {
+             "field": "Rice Exports",
+             "type": "quantitative",
+             "title": "Rice Exports (1000 MT)",
+             "format": ".2f"
+           }
+         ]
+       }
+     }
+   ]
+ }

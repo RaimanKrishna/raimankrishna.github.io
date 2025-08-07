@@ -1,0 +1,95 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "title": {
+    "text": "Ether: Price vs volume",
+    "subtitle": "Daily ETH price and volume traded",
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": "container",
+  "data": {
+    "name": "myData",
+    "url": "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/main/charts/crypto/dataETH.csv"
+  },
+  "encoding": {
+    "x": {
+      "field": "Date",
+      "title": null,
+      "type": "temporal",
+      "axis": {
+        "labelAngle": -45,
+        "format": "%b %Y",
+        "labelOverlap": "parity"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "point": false,
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "y": {
+          "field": "Volume",
+          "type": "quantitative",
+          "title": "",
+          "axis": {
+            "grid": false,
+            "labelColor": "red",
+            "format": ",.5"
+          }
+        },
+        "color": {
+          "datum": "Volume",
+          "scale": {"range": ["blue", "red"]},
+          "legend": {
+            "orient": "top",
+            "title": null
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "point": false,
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "y": {
+          "field": "Price",
+          "type": "quantitative",
+          "title": "",
+          "axis": {
+            "grid": false,
+            "labelColor": "blue",
+            "format": "$,.5"
+          }
+        },
+        "color": {
+          "datum": "Price",
+          "scale": {"range": ["orange", "hotpink"]},
+          "legend": {
+            "orient": "top",
+            "title": null
+          }
+        }
+      }
+    }
+  ],
+  "resolve": {"scale": {"y": "independent"}},
+  "config": {
+    "view": {
+      "continuousWidth": 300,
+      "continuousHeight": 300
+    }
+  }
+}
