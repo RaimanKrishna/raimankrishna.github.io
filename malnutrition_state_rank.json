@@ -1,0 +1,71 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "State-wise chart depicting selected child health indicators with a dropdown menu.",
+  "width": 600,
+  "height": 600,
+  "params": [
+    {
+      "name": "select_variable",
+      "value": "Children under 5 years who are stunted (height-for-age)18 (%)",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Children under 5 years who are stunted (height-for-age)18 (%)",
+          "Children under 5 years who are underweight (weight-for-age)18 (%)"
+        ],
+        "name": "Select Health Indicator: "
+      }
+    }
+  ],
+  "data": {
+    "url": "https://raw.githubusercontent.com/GeromicG/geromicg.github.io/refs/heads/main/India_NFHS5_4.csv"
+  },
+  "transform": [
+    {"calculate": "datum.States === 'India'", "as": "isIndia"},
+    {"calculate": "datum[select_variable]", "as": "value"},
+    {"filter": "datum.value != null"},
+    {
+      "window": [{"op": "rank", "as": "rank"}],
+      "sort": [{"field": "value", "order": "descending"}]
+    }
+  ],
+  "title": {
+    "text": "State-Wise Child Malnutrition Indicators",
+    "fontWeight": "bold",
+    "subtitle": "Source: NFHS 5",
+    "subtitleFontStyle": "italic"
+  },
+  "mark": {
+    "type": "bar",
+    "tooltip": true
+  },
+  "encoding": {
+    "y": {
+      "field": "States",
+      "type": "nominal",
+      "sort": {"field": "value", "order": "descending"},
+      "title": "States"
+    },
+    "x": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "Percentage"
+    },
+    "color": {
+      "condition": {
+        "test": "datum.isIndia",
+        "value": "#002FA7"
+      },
+      "field": "value",
+      "type": "quantitative",
+      "scale": {
+        "domain": [0, 50],
+        "range": ["#fafaf0", "#FF0000"]
+      }
+    },
+    "tooltip": [
+      {"field": "States", "type": "nominal", "title": "State"},
+      {"field": "value", "type": "quantitative", "title": "Percentage", "format": ".1f"}
+    ]
+  }
+}

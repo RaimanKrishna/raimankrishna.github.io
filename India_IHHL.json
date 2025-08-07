@@ -1,0 +1,68 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Grouped bar chart showing IHHL constructed each year with proportions for Aspirational States.",
+  "title": {
+    "text": "Individual Household Latrines Constructed during SBM",
+    "subtitle": "Source: Swacchh Bharat Mission, Government of India",
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 12,
+    "anchor": "start",
+    "color": "black",
+    "fontSize": 16,
+    "offset": 10
+  },
+  "width": 600,
+  "height": 400,
+  "data": {
+    "values": [
+      {"Year": 2014, "Series": "India", "IHHL Constructed": 4902734},
+      {"Year": 2015, "Series": "India", "IHHL Constructed": 12609759},
+      {"Year": 2016, "Series": "India", "IHHL Constructed": 21976753},
+      {"Year": 2017, "Series": "India", "IHHL Constructed": 30263916},
+      {"Year": 2018, "Series": "India", "IHHL Constructed": 19522119},
+      {"Year": 2014, "Series": "Aspirational States", "IHHL Constructed": 1271634},
+      {"Year": 2015, "Series": "Aspirational States", "IHHL Constructed": 3363405},
+      {"Year": 2016, "Series": "Aspirational States", "IHHL Constructed": 6858184},
+      {"Year": 2017, "Series": "Aspirational States", "IHHL Constructed": 13086628},
+      {"Year": 2018, "Series": "Aspirational States", "IHHL Constructed": 14556964}
+    ]
+  },
+  "mark": {
+    "type": "bar",
+    "cornerRadiusTopLeft": 5,
+    "cornerRadiusTopRight": 5
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {"labelAngle": 0}
+    },
+    "y": {
+      "field": "IHHL Constructed",
+      "type": "quantitative",
+      "title": "IHHL Constructed"
+    },
+    "xOffset": {"field": "Series"},
+    "color": {
+      "field": "Series",
+      "type": "nominal",
+      "title": "Category",
+      "scale": {
+        "domain": ["India", "Aspirational States"],
+        "range": ["#1f77b4", "#ff7f0e"]
+      }
+    },
+    "tooltip": [
+      {"field": "Year", "type": "ordinal", "title": "Year"},
+      {"field": "Series", "type": "nominal", "title": "Category"},
+      {
+        "field": "IHHL Constructed",
+        "type": "quantitative",
+        "title": "Constructed",
+        "format": ".2f"
+      }
+    ]
+  }
+}

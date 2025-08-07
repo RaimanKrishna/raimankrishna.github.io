@@ -1,0 +1,76 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Sanitation vs. Stunting in India (NFHS-5 Data)",
+    "subtitle": [
+      "Population using improved sanitation facilities (x), Stunted children under 5 years (y)",
+      "Size of points based on states population",
+      ""
+    ],
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "anchor": "start",
+    "color": "black"
+  },
+  "config": {
+    "background": "white",
+    "view": {
+      "stroke": "transparent"
+    }
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/GeromicG/geromicg.github.io/refs/heads/main/India_NFHS5_2.csv",
+    "format": {"type": "csv"}
+  },
+  "mark": {
+    "type": "circle",
+    "color": "#002FA7",
+    "opacity": 0.7
+  },
+  "height": 450,
+  "width": 500,
+  "encoding": {
+    "x": {
+      "field": "Population living in households that use an improved sanitation facility2 (%)",
+      "type": "quantitative",
+      "scale": {"domain": [0, 100]},
+      "axis": {"grid": false},
+      "title": "Access to Improved Sanitation (%)"
+    },
+    "y": {
+      "field": "Children under 5 years who are stunted (height-for-age)18 (%)",
+      "type": "quantitative",
+      "scale": {"domain": [0, 60]},
+      "axis": {"grid": false},
+      "title": "Stunted Children (%)"
+    },
+    "size": {
+      "field": "Population (in mil)",
+      "type": "quantitative",
+      "title": "Population",
+      "scale": {"range": [25, 1140]}, 
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "States", "type": "ordinal", "title": "State"},
+      {
+        "field": "Population living in households that use an improved sanitation facility2 (%)",
+        "type": "quantitative",
+        "title": "Access to Improved Sanitation (%)",
+        "format": ".1f"
+      },
+      {
+        "field": "Children under 5 years who are stunted (height-for-age)18 (%)",
+        "type": "quantitative",
+        "title": "Stunted Children (%)",
+        "format": ".1f"
+      },
+      {
+        "field": "Population (in mil)",
+        "type": "quantitative",
+        "title": "Population (millions)",
+        "format": ".1f"
+      }
+    ]
+  }
+}

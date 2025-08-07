@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Trellis chart with regression lines for different indicators against Under-five mortality rate",
+  "title": {
+    "text": "India's Under-Five Mortality and Various Indicators on Sanitation, Child Health and Maternal Education",
+    "subtitle": "Regression relationships for key indicators (Source: NFHS 5)",
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "anchor": "start",
+    "color": "black",
+    "offset": 30
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/GeromicG/geromicg.github.io/refs/heads/main/India_NFHS5_4v1.csv"
+  },
+  "transform": [
+    {
+      "fold": [
+        "Population living in households that use an improved sanitation facility2 (%)",
+        "Children with diarrhoea taken to a health facility (%) ",
+        "Children under 5 years who are stunted (height-for-age)18 (%)", 
+        "Women (age 15-49)  with 10 or more years of schooling (%)"
+      ],
+      "as": ["Indicator", "Value"]
+    }
+  ],
+  "spacing": 35,
+  "facet": {
+    "field": "Indicator",
+    "columns": 2,
+    "spacing": 35
+  },
+  "spec": {
+    "width": 250,
+    "height": 250,
+    "mark": "point",
+    "encoding": {
+      "x": {
+        "field": "Value",
+        "type": "quantitative",
+        "title": null
+      },
+      "y": {
+        "field": "Under-five mortality rate (per 1000 live births)",
+        "type": "quantitative",
+        "title": "Under-five mortality rate"
+      }
+    },
+    "layer": [
+      {
+        "mark": {
+          "type": "circle",
+          "color": "#002FA7",
+          "size": 50
+        }
+      },
+      {
+        "mark": {
+          "type": "line",
+          "color": "red"
+        },
+        "transform": [
+          {
+            "regression": "Under-five mortality rate (per 1000 live births)",
+            "on": "Value"
+          }
+        ]
+      }
+    ]
+  },
+  "config": {
+    "facet": {
+      "columns": 2
+    },
+    "axis": {
+      "labelFontSize": 10,
+      "titlePadding": 10
+    },
+    "view": {
+      "stroke": null
+    }
+  },
+  "resolve": {
+    "scale": {
+      "x": "independent",
+      "y": "independent"
+    }
+  }
+}

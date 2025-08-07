@@ -1,0 +1,79 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Map of Indian states showing mortality rates",
+  "width": 800,
+  "height": 600,
+  "title": {
+    "text": "Under Five Mortality in India",
+    "subtitle": ["Source: NFHS 5 (2019-20)"],
+    "fontSize": 15,
+    "subtitleFontSize": 11,
+    "subtitleFontWeight": "lighter",
+    "anchor": "middle"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/GeromicG/geromicg.github.io/main/India_states.json",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.id",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/GeromicG/geromicg.github.io/refs/heads/main/state_mortality.csv"
+            },
+            "key": "id",
+            "fields": ["states", "value"]
+          }
+        }
+      ],
+      "projection": {
+        "type": "mercator",
+        "center": [82, 23],
+        "scale": 1000
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#fff",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "color": {
+          "field": "value",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "orangered",
+            "domain": [0, 57]
+          },
+          "legend": {
+            "title": "Mortality Rate",
+            "format": ".1f"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Mortality Rate",
+            "format": ".1f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}
